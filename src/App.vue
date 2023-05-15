@@ -7,34 +7,18 @@
 </template>
 
 <script>
-import axios from "axios";
 import Navbar from "@/components/NavbarHome.vue";
 export default {
   data() {
     return {
+      // LUGAR PARA CRIAR VARIAVEIS
       alunos: ["alef", "anderson", "emily"],
     };
   },
-  methods: {
-    api() {
-      axios
-        .post("http://localhost:8080/api.php", {
-          
-        })
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
-  },
   components: {
+    
     Navbar
   },
-  created () {
-
-  }
 };
 </script>
 

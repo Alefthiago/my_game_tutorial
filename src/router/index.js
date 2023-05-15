@@ -1,12 +1,11 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
+// Definindo as rotas da aplicação
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: () => import(/* webpackChunkName: "about" */ '../views/HomeView.vue'),
-
-    
+    component: () => import('../views/HomeView.vue'),
   },
   {
     path: "/login",
@@ -25,18 +24,11 @@ const routes = [
   }
 ]
 
+// Criando o router
 const router = createRouter({
+  // Definindo o tipo de histórico
   history: createWebHashHistory(),
+  // Passando as rotas definidas
   routes
-})
-
-router.beforeEach((to, from, next) => {
-  const userAuth = localStorage.getItem("auth-token");
-  if (!userAuth && to.name !== "login" && to.name !== "home") {
-    alert("Faça o login!");
-    next({ name: "login"})
-  } else {
-    next();
-  }
 })
 export default router

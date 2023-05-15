@@ -1,14 +1,15 @@
 <template>
+  <!-- Formulário de login -->
   <form @submit="login($event)">
     <div>
-      <input type="email" v-model="email" />
+      <input type="email" v-model="email" /> <!-- Campo de email -->
     </div>
     <div>
-      <input type="password" v-model="senha" />
+      <input type="password" v-model="senha" /> <!-- Campo de senha -->
     </div>
-    <button>Logar</button>
+    <button>Logar</button> <!-- Botão de login -->
   </form>
-  {{ email }} {{ senha }}
+  {{ email }} {{ senha }} <!-- Exibição temporária dos valores de email e senha -->
 </template>
 
 <script>
@@ -17,33 +18,39 @@ import axios from "axios";
 export default {
   data() {
     return {
-      email: "",
-      senha: "",
+      email: "", // Variável para armazenar o valor do email inserido pelo usuário
+      senha: "", // Variável para armazenar o valor da senha inserida pelo usuário
     };
   },
   methods: {
+    /**
+     * Faz a requisição de autenticação ao servidor.
+     *
+     * @param {Event} e - Objeto de evento representando o envio do formulário.
+     */
     login(e) {
-      e.preventDefault();
+      e.preventDefault(); // Impede o comportamento padrão de envio do formulário
+
       axios
-        .post("http://localhost:8080/auth.php", {
-          email: this.email,
-          senha: this.senha
+        .post("http://localhost:9090/token/auth.php", {
+          email: this.email, // Envia o valor do email para o servidor
+          senha: this.senha, // Envia o valor da senha para o servidor
         })
         .then((response) => {
-          let json = response.data;  
+          let json = response.data;
+          console.log(json)
           if (json.token) {
-              localStorage.setItem("auth-token", json.token);
-              this.$router.push("/perfil");
+            // Se um token for retornado na resposta, armazena-o no localStorage
+            localStorage.setItem("auth-token", json.token);
+            this.$router.push("/perfil"); // Navega para a rota '/perfil'
           } else {
-            alert("Dados invalidos!")
+            alert("Dados inválidos!"); // Exibe um alerta se os dados forem inválidos
           }
         })
         .catch((error) => {
-          console.log(error);
+          console.log(error); // Exibe o erro no console, se ocorrer algum problema na requisição
         });
     },
-
-
   },
 };
 </script>

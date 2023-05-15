@@ -1,13 +1,12 @@
 <template>
-  <div></div>
+  <form>
+    
+  </form>
 </template>
 
 <script>
-
 export default {
-  created () {
-    this.$authUser();
-}
+
 }
 </script>
 

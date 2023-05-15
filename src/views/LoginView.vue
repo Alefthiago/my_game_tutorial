@@ -10,6 +10,7 @@ import FormLogin from '@/components/FormLogin.vue'
 export default {
   data () {
     return {
+      // LUGAR PARA CRIAR VARIAVEIS
     }
   },
     components: {

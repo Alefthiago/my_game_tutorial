@@ -2,3 +2,6 @@ body {
     background-color: #421f65;
     
 }
+.rota-atual {
+    color: red;
+}
