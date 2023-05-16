@@ -2,14 +2,18 @@
   <!-- Formulário de login -->
   <form @submit="login($event)">
     <div>
-      <input type="email" v-model="email" /> <!-- Campo de email -->
+      <input type="email" v-model="email" />
+      <!-- Campo de email -->
     </div>
     <div>
-      <input type="password" v-model="senha" /> <!-- Campo de senha -->
+      <input type="password" v-model="password" />
+      <!-- Campo de senha -->
     </div>
-    <button>Logar</button> <!-- Botão de login -->
+    <button>Logar</button>
+    <!-- Botão de login -->
   </form>
-  {{ email }} {{ senha }} <!-- Exibição temporária dos valores de email e senha -->
+  {{ email }} {{ password }}
+  <!-- Exibição temporária dos valores de email e senha -->
 </template>
 
 <script>
@@ -19,7 +23,7 @@ export default {
   data() {
     return {
       email: "", // Variável para armazenar o valor do email inserido pelo usuário
-      senha: "", // Variável para armazenar o valor da senha inserida pelo usuário
+      password: "", // Variável para armazenar o valor da senha inserida pelo usuário
     };
   },
   methods: {
@@ -30,15 +34,13 @@ export default {
      */
     login(e) {
       e.preventDefault(); // Impede o comportamento padrão de envio do formulário
-
       axios
         .post("http://localhost:9090/token/auth.php", {
           email: this.email, // Envia o valor do email para o servidor
-          senha: this.senha, // Envia o valor da senha para o servidor
+          password: this.password, // Envia o valor da senha para o servidor
         })
         .then((response) => {
           let json = response.data;
-          console.log(json)
           if (json.token) {
             // Se um token for retornado na resposta, armazena-o no localStorage
             localStorage.setItem("auth-token", json.token);

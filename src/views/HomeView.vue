@@ -1,47 +1,45 @@
 <template>
   <div class="home">
-    <div>
-      <table>
-        <td>email</td>
-        <td>senha</td>
-        <tr v-for="(obj, index) in csv" :key="index">
-          <td>
-           {{ obj.user.email }}
-          </td>
-          <td>
-            {{ obj.user.name }}
-          </td>
-        </tr>  
-      </table>      
-    </div>
+    <FormAddNews v-if="root" />
+    <h1>Noticias</h1>
+    <PostNews />
   </div>
 </template>
 
 <script>
-import axios from "axios";
+import PostNews from "@/components/PostNews.vue";
+import FormAddNews from "@/components/FormAddNews.vue";
 
 export default {
   data() {
     return {
-      csv: {},
+      root: false,
     };
   },
+  components: {
+    PostNews,
+    FormAddNews,
+  },
   created() {
-    this.dataCSV();
+    this.$getUserType()
+      .then((response) => {
+        if (response.data === "admin") {
+          this.root = true;
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
-  methods: {
-    dataCSV() {
-      axios
-        .get("http://localhost:9090/copiarCSV.php")
-        .then((response) => {
-          let json = response.data;
-          this.csv = json;
-          console.log(json);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
-  },
+  mounted() {},
 };
 </script>
+
+<style scoped>
+.home {
+  display: flex;
+  flex-direction: column;
+  background-color: green;
+  align-items: center;
+}
+</style>

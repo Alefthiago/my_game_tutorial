@@ -1,6 +1,11 @@
 <?php 
     require 'env.php';
     
+    function unauthorized () {
+        http_response_code(401);
+        exit();
+    }
+
     function base64url_encode ($data) {
         return rtrim(strtr(base64_encode($data), '+/', '-_'), '=');
     }
@@ -16,7 +21,7 @@
       
         return $base64sign;
     }
-    
+
     
     function generateToken ($payload) {
         $header = json_encode([

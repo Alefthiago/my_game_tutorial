@@ -12,11 +12,9 @@ export default {
   data() {
     return {
       // LUGAR PARA CRIAR VARIAVEIS
-      alunos: ["alef", "anderson", "emily"],
     };
   },
-  components: {
-    
+  components: {    
     Navbar
   },
 };

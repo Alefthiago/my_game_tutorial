@@ -6,7 +6,7 @@
 
     require 'functions.php';
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    
+   
         if (!isset($_SERVER['HTTP_AUTHORIZATION'])) {
             unauthorized();
         }
@@ -21,4 +21,6 @@
             unauthorized();
         }
 
+        $data = getTokenData($token);
+        echo json_encode($data['type']);
     }
