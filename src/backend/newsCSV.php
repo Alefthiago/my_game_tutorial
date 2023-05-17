@@ -12,8 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $rowAssociative = [
                     "title" => $row[0],
                     "content" => $row[1],
-                    "date" => $row[2],
-                    "author" => $row[3],
+                    "author" => $row[2],
+                    "date" => $row[3],
                     "id" => $row[4]
             ];
             $news[] = $rowAssociative;

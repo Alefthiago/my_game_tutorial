@@ -31,7 +31,9 @@ export default {
         console.log(error);
       });
   },
-  mounted() {},
+  mounted() {
+    
+  },
 };
 </script>
 

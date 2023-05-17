@@ -2,11 +2,11 @@
   <!-- Formulário de login -->
   <form @submit="login($event)">
     <div>
-      <input type="email" v-model="email" />
+      <input type="email" v-model="email" required/>
       <!-- Campo de email -->
     </div>
     <div>
-      <input type="password" v-model="password" />
+      <input type="password" v-model="password" required/>
       <!-- Campo de senha -->
     </div>
     <button>Logar</button>

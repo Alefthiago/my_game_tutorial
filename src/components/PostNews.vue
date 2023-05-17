@@ -3,9 +3,10 @@
     <div v-for="(item, index) in news" :key="item.title" class="news-item">
       <div class="news-title">{{ item.title }}</div>
       <div class="news-content">{{ item.content }}</div>
-      <div class="news-date">{{ item.date }}</div>
       <div class="news-author">{{ item.author }}</div>
+      <div class="news-date">{{ item.date }}</div>
       <button v-if="root" @click="updateNews(index)">Editar</button>
+      <button v-if="root" @click="deleteNews()">Excluir</button>
     </div>
   </div>
 </template>
@@ -21,21 +22,19 @@ export default {
     };
   },
   methods: {
-
-      updateNews (index) {
-      let token = localStorage.getItem('auth-token');
-      axios
-          .post('http://localhost:9090/updateNews.php', {
-            title: this.news[index].title,
-            content: this.news[index].content,
-            date: this.news[index].date,
-            author: this.news[index].author,
-            id: this.news[index].id,
-            token: token
-          })
-          .catch((error) => {
-            console.log(error);
-          })
+    updateNews(index) {
+      this.$router.push({
+        name: 'updateNews',
+        query: {
+          title: this.news[index].title,
+          content: this.news[index].content,
+          author: this.news[index].author,
+          id: this.news[index].id
+        }
+      });
+    },
+    deleteNews() {
+      this.$forceUpdate();
     }
   },
   created() {
@@ -87,6 +86,7 @@ export default {
   font-size: 12px;
   font-style: italic;
 }
+
 .id {
   visibility: hidden;
 }

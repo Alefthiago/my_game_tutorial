@@ -1,7 +1,7 @@
 <template>
   <form @submit="addPost">
-    <input type="text" v-model="titleNews" />
-    <textarea cols="30" rows="10" v-model="contentNews"></textarea>
+    <input type="text" v-model="titleNews" required/>
+    <textarea cols="30" rows="10" v-model="contentNews" required></textarea>
     <button>Postar</button>
   </form>
   {{ titleNews }}
@@ -30,7 +30,7 @@ export default {
           })
           .then(() => {
             e.target.reset();
-            location.reload();
+            
           })
           .catch(() => {
             alert('Ação não autoriazada');

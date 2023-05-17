@@ -10,7 +10,9 @@
         if (!isset($data)) {
             unauthorized();
         }
-        
+        if (!isset($data['token'])) {
+            unauthorized();
+        }
         if (!validateToken($data['token'])) {
             unauthorized();
         } 
