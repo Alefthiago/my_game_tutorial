@@ -9,7 +9,10 @@ npm install
 ```
 npm run serve
 ```
-
+### Backend
+```
+localhost:9090
+```
 ### Compiles and minifies for production
 ```
 npm run build
