@@ -1,0 +1,44 @@
+[
+    {
+        "img": "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltccdc2c17c7c18731/645c26df6d595a1e68fa300a/2022-Key-Art.jpg",
+        "game": "League of Legends",
+        "title": "NOTAS DA ATUALIZAÇÃO 13.10.",
+        "link": "https://www.leagueoflegends.com/pt-br/news/game-updates/notas-da-atualizacao-13-10/"
+    },
+    {
+        "img": "https://s2-ge.glbimg.com/VjiMgjBgUJ38Z1agyysjSNbATeg=/0x0:1280x720/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2023/1/O/0WIP2ASEqQCya59JLZHg/fortnite-star-wars-thummb.jpg",
+        "game": "Fortnite",
+        "title": "ATUALIZAÇÃO V.24.30 DO BATTLE ROYALE DO FORTNITE: 'ENCONTRE A FORÇA' E INICIE SEU TREINAMENTO.",
+        "link": "https://www.fortnite.com/news/fortnite-battle-royale-v24-30-update-find-the-force-and-begin-your-training"
+    },
+    {
+        "img": "https://bnetcmsus-a.akamaihd.net/cms/blog_thumbnail/9n/9N690WNIRE6X1683908674369.png",
+        "title": "DIABLO IV | POR DENTRO DO JOGO: UMA NOVA SAGA.",
+        "game": "Diablo IV",
+        "link": "https://news.blizzard.com/pt-br/diablo4/23952501/diablo-iv-por-dentro-do-jogo-uma-nova-saga"
+    },
+    {
+        "img": "https://static1-br.millenium.gg/articles/6/14/76/6/@/157355-valorant-amp_main_media-1.jpg",
+        "game": "Valorant",
+        "title": "TORNEIOS DE COMUNIDADE - 19/05 A 25/05.",
+        "link": "https://playvalorant.com/pt-br/news/community/torneios-de-comunidade-19-05-a-25-05/"
+    },
+    {
+        "img": "https://www.brawlhalla.com/c/uploads/2023/05/100Mpn_1920x1080-980x551.jpg",
+        "game": "Brawlhalla",
+        "title": "COMEMORANDO 100 MILHÕES DE BRAWLERS! – PATCH 7.08.",
+        "link": "https://www.brawlhalla.com/news/celebrating-100-million-brawlers-patch-7-08/"
+    },
+    {
+        "img": "https://corujaogames.com.br/wp-content/uploads/2021/07/sea-of-thieves-piratas-do-caribe.png",
+        "game": "Sea of Thieves",
+        "title": "DOIS MUNDOS PIRATAS SE COMBINAM EM SEA OF THIEVES: A PIRATE’S LIFE.",
+        "link": "https://www.seaofthieves.com/pt-br/a-pirates-life"
+    },
+    {
+        "img": "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt03586d93503e1154/64652a8d30b8391102fd616b/PL2023ResultadoEtapa1_Banner.jpg",
+        "game": "Teamfight Tactics",
+        "title": "PROLEGENDS 2023: RED VCLF VENCE A ETAPA 1 E É UM DOS CLASSIFICADOS AO MUNDIAL.",
+        "link": "https://teamfighttactics.leagueoflegends.com/pt-br/news/esports/prolegends-2023-red-vclf-vence-a-etapa-1-e-e-um-dos-classificados-ao-mundial/"
+    }
+]

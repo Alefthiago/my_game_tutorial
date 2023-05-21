@@ -18,19 +18,19 @@ const routes = [
     component: () => import('../views/PerfilView.vue')
   },
   {
-    path: '/tutorial',
-    name: 'tutorial',
-    component: () => import('../views/TutorialView.vue')
-  },
-  {
-    path: '/course',
-    name: 'course',
-    component: () => import('../views/CourseView.vue')
+    path: '/community',
+    name: 'community',
+    component: () => import('../views/CommunityView.vue')
   },
   {
     path: '/updateNews',
     name: 'updateNews',
     component: () => import('../views/UpdateNewsView.vue')
+  },
+  {
+    path: '/registration',
+    name: 'registration',
+    component: () => import('../views/RegistrationView.vue')
   }
 ]
 

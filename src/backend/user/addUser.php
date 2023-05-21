@@ -10,21 +10,20 @@
         if (!isset($data)) {
             unauthorized();
         }
-        
-        if (!validateToken($data['token'])) {
-            unauthorized();
-        } 
 
-        $file = "csv/news.csv";
-        $fp = fopen($file, 'a');
+        $file = "../csv/news.csv";
+        $fp = fopen($file, 'r');
         
         if ($fp) {
-            $payload = getTokenData($data['token']);
-
-            date_default_timezone_set("America/Sao_Paulo");
-            $date = date("F j, Y, H:i ");
+            while(($row = fgetcsv($fp)) !== false) {
+                if ($row[0] == $data['email'] or $row[2] == $data['user']) {
+                    http_response_code(409);
+                    exit();
+                }
+            }
             
-            fputcsv($fp, [$data["title"], $data["content"], $payload['user'], $date, uniqid()]);
             fclose($fp);
+            $fp = fopen($file, 'a');
+            fputcsv($fp, [$data['email'], $data['name'], $data['username'], $data['password']]);
         }
     }

@@ -1,14 +1,19 @@
 <template>
   <div class="home">
-    <FormAddNews v-if="root" />
-    <h1>Noticias</h1>
+   <!--
+     <FormAddNews v-if="root" />
+   -->
+   <div class="container-title">
+     <p class="fs fontBold">Notícias</p>
+   </div> 
+    
     <PostNews />
   </div>
 </template>
 
 <script>
 import PostNews from "@/components/PostNews.vue";
-import FormAddNews from "@/components/FormAddNews.vue";
+//import FormAddNews from "@/components/FormAddNews.vue";
 
 export default {
   data() {
@@ -18,9 +23,10 @@ export default {
   },
   components: {
     PostNews,
-    FormAddNews,
+   // FormAddNews,
   },
   created() {
+    console.log(this.$login);
     this.$getUserType()
       .then((response) => {
         if (response.data === "admin") {
@@ -41,7 +47,16 @@ export default {
 .home {
   display: flex;
   flex-direction: column;
-  background-color: green;
   align-items: center;
+}
+.container-title {
+  width: 80vw;
+  min-height: 100px;
+  display: flex;
+  padding: 50px;
+  margin-left: 10vh;
+  font-size: 5rem;
+  text-shadow: 5px 5px 10px black;
+  border-bottom: 1px solid #A09B8C;
 }
 </style>

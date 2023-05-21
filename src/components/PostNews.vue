@@ -1,12 +1,17 @@
 <template>
-  <div>
-    <div v-for="(item, index) in news" :key="item.title" class="news-item">
-      <div class="news-title">{{ item.title }}</div>
-      <div class="news-content">{{ item.content }}</div>
-      <div class="news-author">{{ item.author }}</div>
-      <div class="news-date">{{ item.date }}</div>
-      <button v-if="root" @click="updateNews(index)">Editar</button>
-      <button v-if="root" @click="deleteNews()">Excluir</button>
+  <form class="d-flex" role="search">
+    <input class="form-control me-2 fontItalic" type="search" placeholder="Pesquisar" aria-label="Search">
+    <button class="btn btn-secondary fontItalic" type="submit">Pesquisar</button>
+  </form>
+
+  <div class="container ">
+    <div v-for="item, in news" :key="item.title" class="card " style="width: 18rem;">
+      <img :src="item.img" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text text-light"> {{ item.game }}</p>
+        <h5 class="card-title text-light">{{ item.title }}</h5>
+        <a :href="item.link" class="btn btn-secondary fontItalic" target="_blank">Ler mais</a>
+      </div>
     </div>
   </div>
 </template>
@@ -39,7 +44,7 @@ export default {
   },
   created() {
     axios
-      .get("http://localhost:9090/newsCSV.php")
+      .get("http://localhost:9090/news/news.php")
       .then((response) => {
         this.news = response.data;
       })
@@ -60,34 +65,38 @@ export default {
 </script>
 
 <style scoped>
-.news-item {
-  height: 150px;
-  width: 200px;
-  background-color: red;
-  margin-top: 4%;
-  padding: 10px;
+.container {
+  margin-bottom: 5%;
+  padding: 2%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
-.news-title {
-  font-weight: bold;
+.card {
+  margin-top: 5%;
+  box-shadow: 4px 5px 5px 5px black;
+  background-image: linear-gradient(to top, #091428, #0A1428)
 }
 
-.news-content {
-  margin-top: 10px;
+.card:hover {
+  transform: scale(1.05);
+  /* Aumenta um pouco o tamanho do card */
+  box-shadow: 0 0 0;
+  /* Adiciona uma sombra leve */
+  border: 2px solid white;
 }
 
-.news-date {
-  margin-top: 10px;
-  font-size: 12px;
+p {
+  font-family: 'fontItalic', sans-serif;
 }
 
-.news-author {
-  margin-top: 10px;
-  font-size: 12px;
-  font-style: italic;
+h5 {
+  font-family: 'fontRiot', sans-serif;
 }
 
-.id {
-  visibility: hidden;
+form {
+  margin-top: 2%;
 }
 </style>

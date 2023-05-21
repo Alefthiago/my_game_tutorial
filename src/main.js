@@ -3,11 +3,12 @@ import App from './App.vue';
 import router from './router';
 import "@/assets/css/style.css";
 import axios from "axios";
+import store from './store'
 
-const app = createApp(App);
+const app = createApp(App).use(store);
 app.use(router);
 
-app.config.globalProperties.$globalVar = 'Valor Global';
+app.config.globalProperties.$login = true;
 
 app.config.globalProperties.$authUser = async () => {
   let token = localStorage.getItem('auth-token');

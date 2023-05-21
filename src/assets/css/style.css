@@ -1,7 +1,48 @@
-body {
-    background-color: #421f65;
-    
+@import url('https://fonts.cdnfonts.com/css/southpole-explorer');
+
+@font-face {
+    font-family: 'fontBold';
+    src: url('/src/assets/fonts/BeaufortforLOL-Bold.ttf') format('truetype');
 }
-.rota-atual {
-    color: red;
+
+@font-face {
+    font-family: 'fontHeavy';
+    src: url('/src/assets/fonts/BeaufortforLOL-Heavy.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'fontItalic';
+    src: url('/src/assets/fonts/BeaufortforLOL-Italic.ttf') format('truetype');
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #1E282D;
+}
+
+body {
+    background-color: #010A13;
+}
+
+* {
+    color: white;
+}
+
+.fontItalic {
+    font-family: 'fontItalic', sans-serif;
+}
+.fontHeavy {
+    font-family: 'fontHeavy', sans-serif;
+}
+.fontBold {
+    font-family: 'fontBold', sans-serif;
 }

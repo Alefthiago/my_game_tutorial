@@ -9,12 +9,12 @@
         $data = json_decode($json, true);
         
         $response = [];
-        if (!empty($data["email"]) && !empty($data["password"])) {
+        if (!empty($data["emailOrUser"]) && !empty($data["password"])) {
             $arquivo = "../csv/users.csv";
             $fp = fopen($arquivo, "r");
             if ($fp) {
                 while (($row = fgetcsv($fp)) !== false) {
-                    if ($row[0] === $data["email"] && $row[3] === $data["password"]) {
+                    if (($row[0] == $data['emailOrUser'] || $row[2] == $data['emailOrUser']) && $row[3] === $data['password']) {
                         $response['token'] = generateToken([
                             'sub' => $row[0],
                             'user' => $row[2],
