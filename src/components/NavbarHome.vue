@@ -63,8 +63,8 @@ export default {
   },
   methods: {
     logout() {
-      this.$login = false;
-      console.log(this.$login);
+      localStorage.removeItem('auth-token');
+      this.$router.push('/');
     },
     // this.$logoutUser();
   }
