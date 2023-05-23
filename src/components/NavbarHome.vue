@@ -7,7 +7,7 @@
           Game Tutorial</router-link>
       </div>
 
-      <div style="width: 25%;">
+      <div style="width: 30%;">
         <div class="collapse navbar-collapse" id="navbarScroll">
           <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
 

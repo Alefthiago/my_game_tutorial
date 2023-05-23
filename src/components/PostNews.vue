@@ -1,12 +1,11 @@
 <template>
   <form class="d-flex" role="search">
-    <input class="form-control me-2 fontItalic" type="search" placeholder="Pesquisar" aria-label="Search">
-    <button class="btn btn-secondary fontItalic" type="submit">Pesquisar</button>
+    <input class="form-control me-2 fontItalic" type="search" placeholder="Pesquisar" aria-label="Search" v-model="searchQuery">
   </form>
 
-  <div class="container ">
-    <div v-for="item, in news" :key="item.title" class="card " style="width: 18rem;">
-      <img :src="item.img" class="card-img-top" alt="...">
+  <div class="container">
+    <div v-for="item in filteredNews" :key="item.title" class="card" style="width: 18rem;">
+      <img :src="item.img" class="card-img-top" :alt="item.game">
       <div class="card-body">
         <p class="card-text text-light"> {{ item.game }}</p>
         <h5 class="card-title text-light">{{ item.title }}</h5>
@@ -23,24 +22,17 @@ export default {
   data() {
     return {
       news: [],
-      root: false,
+      searchQuery: '', // Propriedade para armazenar a pesquisa
     };
   },
-  methods: {
-    updateNews(index) {
-      this.$router.push({
-        name: 'updateNews',
-        query: {
-          title: this.news[index].title,
-          content: this.news[index].content,
-          author: this.news[index].author,
-          id: this.news[index].id
-        }
+  computed: {
+    filteredNews() {
+      const searchQuery = this.searchQuery.toLowerCase();
+      return this.news.filter(item => {
+        const game = item.game.toLowerCase();
+        return game.includes(searchQuery);
       });
     },
-    deleteNews() {
-      this.$forceUpdate();
-    }
   },
   created() {
     axios
@@ -66,18 +58,19 @@ export default {
 
 <style scoped>
 .container {
-  margin-bottom: 5%;
-  padding: 2%;
+  margin-bottom: 20px;
+  padding: 5px;
   border-radius: 10px;
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
 .card {
-  margin-top: 5%;
+  margin-top: 50px;
   box-shadow: 4px 5px 5px 5px black;
-  background-image: linear-gradient(to top, #091428, #0A1428)
+  background-image: linear-gradient(to top, #091428, #0A1428);
 }
 
 .card:hover {

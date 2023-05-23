@@ -26,7 +26,6 @@ export default {
    // FormAddNews,
   },
   created() {
-    console.log(this.$login);
     this.$getUserType()
       .then((response) => {
         if (response.data === "admin") {

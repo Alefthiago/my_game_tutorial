@@ -16,7 +16,6 @@
       <p><router-link to="/registration" class="fontBold">Faça cadastro aqui</router-link></p>
     </form>
   </div>
-
 </template>
 
 <script>
@@ -55,7 +54,7 @@ export default {
           }
         })
         .catch((error) => {
-          console.log(error); // Exibe o erro no console, se ocorrer algum problema na requisição
+          console.log(error); // Exibe o erro no cdonsole, se ocorrer algum problema na requisição
         });
     },
   },
@@ -64,8 +63,8 @@ export default {
 
 <style scoped>
 form {
-  width: 25%;
-  height: 55%;
+  width: 300px;
+  height: 300px;
   background-color: #091428;
   box-shadow: 4px 3px 5px 2px black;
 }
