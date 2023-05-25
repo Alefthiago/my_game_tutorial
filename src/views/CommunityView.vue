@@ -1,32 +1,33 @@
 <template>
-    <div class="container">
-      <div class="titlePage"> 
-        <p class="fs fontBold">Comunidade</p>
-      </div>
-      <div class="addPost">
-        <form>
-          <input type="text">
-          <textarea name="" cols="30" rows="10"></textarea>
-        </form>
-      </div>
+  <div class="container">
+    <div class="titleComponent">
+      <p class="fs fontBold">Comunidade</p>
     </div>
+    <FormAddPost />
+    <PostCommunity/>
+  </div>
 </template>
 
 <script>
+import FormAddPost from '@/components/FormAddPost.vue';
+import PostCommunity from '@/components/PostCommunity.vue';
 export default {
   created() {
     this.$authUser();
   },
+  components: {
+    FormAddPost,
+    PostCommunity
+}
 }
 </script>
 
-<style>
+<style scoped>
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .titlePage {
   width: 80vw;
   min-height: 100px;
