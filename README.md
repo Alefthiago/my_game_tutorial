@@ -5,11 +5,11 @@
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compiles and hot-reloads for development (In the root directory, use the command)
 ```
 npm run serve
 ```
-### Backend
+### Backend (In the 'backend' directory, use the command)
 ```
 localhost:9090
 ```
