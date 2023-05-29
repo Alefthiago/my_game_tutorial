@@ -20,9 +20,7 @@ export default {
   height: auto;
   border-bottom: 1px solid #A09B8C;
 }
-.fs {
-  font-size: 5em;
-}
+
 .titleComponent {
   width: 80vw;
   min-height: 100px;

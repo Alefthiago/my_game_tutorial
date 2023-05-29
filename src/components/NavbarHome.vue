@@ -3,22 +3,24 @@
   <nav class="navbar navbar-expand-lg bg">
     <div class="container-fluid">
       <div class="logo">
-        <router-link class="navbar-brand text-light fs-2 fontHeavy" to="/">My
-          Game Tutorial</router-link>
+        <router-link class="navbar-brand text-light fs-2 fontHeavy" to="/">My Game Tutorial</router-link>
       </div>
 
       <div style="width: 30%;">
         <div class="collapse navbar-collapse" id="navbarScroll">
           <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
 
+            <!-- Link para a página de Notícias -->
             <li class="nav-item">
               <router-link class="nav-link text-light fontItalic" to="/">Notícias</router-link>
             </li>
 
-            <li class="nav-link">
-              <router-link class="dropdown-item text-light fontItalic" to="/community">Comunidade</router-link>
+            <!-- Link para a página de Comunidade -->
+            <li class="nav-item">
+              <router-link class="nav-link text-light fontItalic" to="/community">Comunidade</router-link>
             </li>
 
+            <!-- Dropdown para a conta do usuário -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-light fontItalic" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
@@ -26,19 +28,23 @@
               </a>
 
               <ul class="dropdown-menu dropdown-menu-dark">
-                <!--<div v-if="$login">-->
+                <!-- Link para a página de Login -->
                 <router-link class="dropdown-item fontItalic" to="/login">Entrar</router-link>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <router-link class="dropdown-item fontItalic" to="/perfil">Alterar dados</router-link>
-                <!--</div>-->
-                <!---<div v-if="!$login">-->
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <a class="dropdown-item fontItalic" @click="logout">Sair</a>
-                <!--</div>-->
+
+                <!-- Se o usuário estiver logado, exibir opções adicionais -->
+                <div v-if="userLogin">
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <!-- Link para a página de Alterar Dados -->
+                  <router-link class="dropdown-item fontItalic" to="/perfil">Alterar dados</router-link>
+
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <!-- Opção para fazer logout -->
+                  <a class="dropdown-item fontItalic" @click="logout">Sair</a>
+                </div>
               </ul>
             </li>
           </ul>
@@ -56,17 +62,31 @@ export default {
     };
   },
   computed: {
+    /**
+     * Obtém o caminho completo da rota atual
+     * @returns {string} - Caminho completo da rota atual
+     */
     rotaAtual() {
-      // Retorna o "fullPath" da rota atual como uma string
       return this.$router.currentRoute.value.fullPath;
     },
+
+    /**
+     * Verifica se o usuário está logado
+     * @returns {boolean} - True se o usuário estiver logado, False caso contrário
+     */
+    userLogin() {
+      let user = localStorage.getItem('auth-token'); 
+      return !!user; // Retorna true se user existir, caso contrário retorna false
+    }
   },
   methods: {
+    /**
+     * Função para fazer logout do usuário
+     */
     logout() {
       localStorage.removeItem('auth-token');
       this.$router.push('/');
-    },
-    // this.$logoutUser();
+    }
   }
 };
 </script>

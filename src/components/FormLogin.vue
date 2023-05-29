@@ -24,16 +24,14 @@ import axios from "axios";
 export default {
   data() {
     return {
-      dataI: false,
-      emailOrUser: '', // Variável para armazenar o valor do email inserido pelo usuário
+      dataI: false, // Variável para controlar se os dados são inválidos
+      emailOrUser: '', // Variável para armazenar o valor do email ou usuário inserido pelo usuário
       password: '', // Variável para armazenar o valor da senha inserida pelo usuário
     };
   },
   methods: {
     /**
      * Faz a requisição de autenticação ao servidor.
-     *
-     * @param {Event} e - Objeto de evento representando o envio do formulário.
      */
     login() {
       axios
@@ -42,19 +40,18 @@ export default {
           password: this.password.toLowerCase(),
         })
         .then((response) => {
-
           let json = response.data;
           console.log(json);
           if (json.token) {
             // Se um token for retornado na resposta, armazena-o no localStorage
             localStorage.setItem("auth-token", json.token);
-            this.$router.push("/community"); // Navega para a rota '/perfil'
+            this.$router.push("/community"); // Navega para a rota '/community'
           } else {
             this.dataI = true; // Exibe um alerta se os dados forem inválidos
           }
         })
         .catch((error) => {
-          console.log(error); // Exibe o erro no cdonsole, se ocorrer algum problema na requisição
+          console.log(error); // Exibe o erro no console, se ocorrer algum problema na requisição
         });
     },
   },
