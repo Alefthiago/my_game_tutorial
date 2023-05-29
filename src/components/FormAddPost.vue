@@ -60,7 +60,6 @@ form {
   align-items: center;
   width: 80vw;
   height: auto;
-  margin-left: 10vh;
   border-bottom: 1px solid #A09B8C;
 }
 

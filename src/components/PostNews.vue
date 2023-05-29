@@ -5,9 +5,10 @@
 
   <div class="container">
     <div v-for="item in filteredNews" :key="item.title" class="card" style="width: 18rem;">
-      <img :src="item.img" class="card-img-top" :alt="item.game">
+      <div class="image-container">
+        <img :src="item.img" class="card-img-top">
+      </div>
       <div class="card-body">
-        <p class="card-text text-light"> {{ item.game }}</p>
         <h5 class="card-title text-light">{{ item.title }}</h5>
         <a :href="item.link" class="btn btn-secondary fontItalic" target="_blank">Ler mais</a>
       </div>
@@ -29,7 +30,7 @@ export default {
     filteredNews() {
       const searchQuery = this.searchQuery.toLowerCase();
       return this.news.filter(item => {
-        const game = item.game.toLowerCase();
+        const game = item.title.toLowerCase();
         return game.includes(searchQuery);
       });
     },
@@ -39,15 +40,6 @@ export default {
       .get("http://localhost:9090/news/news.php")
       .then((response) => {
         this.news = response.data;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    this.$getUserType()
-      .then((response) => {
-        if (response.data === "admin") {
-          this.root = true;
-        }
       })
       .catch((error) => {
         console.log(error);
@@ -69,7 +61,7 @@ export default {
 
 .card {
   margin-top: 50px;
-  box-shadow: 4px 5px 5px 5px black;
+  box-shadow: 4px 5px 5px black;
   background-image: linear-gradient(to top, #091428, #0A1428);
 }
 
@@ -91,5 +83,21 @@ h5 {
 
 form {
   margin-top: 2%;
+}
+
+.image-container {
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%; /* Proporção de aspecto 4:3 (75% = 3/4) */
+  position: relative;
+}
+
+.image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 </style>

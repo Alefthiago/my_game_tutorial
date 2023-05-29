@@ -18,8 +18,18 @@ export default {
   align-items: center;
   width: 80vw;
   height: auto;
-  margin-left: 10vh;
   border-bottom: 1px solid #A09B8C;
 }
-
+.fs {
+  font-size: 5em;
+}
+.titleComponent {
+  width: 80vw;
+  min-height: 100px;
+  display: flex;
+  padding: 50px;
+  font-size: 5rem;
+  text-shadow: 5px 5px 10px black;
+  border-bottom: 1px solid #A09B8C;
+}
 </style>

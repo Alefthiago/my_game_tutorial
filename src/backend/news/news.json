@@ -1,44 +1,270 @@
-[
-    {
-        "img": "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltccdc2c17c7c18731/645c26df6d595a1e68fa300a/2022-Key-Art.jpg",
-        "game": "League of Legends",
-        "title": "NOTAS DA ATUALIZAÇÃO 13.10.",
-        "link": "https://www.leagueoflegends.com/pt-br/news/game-updates/notas-da-atualizacao-13-10/"
+{
+    "request_info": {
+      "success": true,
+      "credits_used": 92,
+      "credits_remaining": 8,
+      "credits_used_this_request": 1
     },
-    {
-        "img": "https://s2-ge.glbimg.com/VjiMgjBgUJ38Z1agyysjSNbATeg=/0x0:1280x720/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2023/1/O/0WIP2ASEqQCya59JLZHg/fortnite-star-wars-thummb.jpg",
-        "game": "Fortnite",
-        "title": "ATUALIZAÇÃO V.24.30 DO BATTLE ROYALE DO FORTNITE: 'ENCONTRE A FORÇA'.",
-        "link": "https://www.fortnite.com/news/fortnite-battle-royale-v24-30-update-find-the-force-and-begin-your-training"
+    "search_parameters": {
+      "engine": "google",
+      "search_type": "news",
+      "q": "Mortal Kombat",
+      "news_type": "all",
+      "location": "Brazil",
+      "google_domain": "google.com.br",
+      "gl": "br",
+      "hl": "pt",
+      "time_period": "last_day",
+      "sort_by": "relevance",
+      "page": "1",
+      "max_page": "1",
+      "num": "5",
+      "output": "json"
     },
-    {
-        "img": "https://bnetcmsus-a.akamaihd.net/cms/blog_thumbnail/9n/9N690WNIRE6X1683908674369.png",
-        "title": "DIABLO IV | POR DENTRO DO JOGO: UMA NOVA SAGA.",
-        "game": "Diablo IV",
-        "link": "https://news.blizzard.com/pt-br/diablo4/23952501/diablo-iv-por-dentro-do-jogo-uma-nova-saga"
+    "search_metadata": {
+      "created_at": "2023-05-19T00:56:29.081Z",
+      "processed_at": "2023-05-19T00:56:39.533Z",
+      "total_time_taken": 10.45,
+      "pages": [
+        {
+          "created_at": "2023-05-19T00:56:29.081Z",
+          "processed_at": "2023-05-19T00:56:39.533Z",
+          "total_time_taken": 10.45,
+          "page": "1",
+          "engine_url": "https://www.google.com.br/search?q=Mortal+Kombat&gl=br&hl=pt&uule=w+CAIQICIGQnJhemls&tbm=nws&num=5&tbs=qdr%3Ad",
+          "html_url": "https://api.serpwow.com/live/search?api_key=7D379056FD6C490BB46CC38D1A917DE8&engine=google&search_type=news&q=Mortal+Kombat&news_type=all&location=Brazil&google_domain=google.com.br&gl=br&hl=pt&time_period=last_day&sort_by=relevance&page=1&max_page=1&num=5&output=html",
+          "json_url": "https://api.serpwow.com/live/search?api_key=7D379056FD6C490BB46CC38D1A917DE8&engine=google&search_type=news&q=Mortal+Kombat&news_type=all&location=Brazil&google_domain=google.com.br&gl=br&hl=pt&time_period=last_day&sort_by=relevance&page=1&max_page=1&num=5&output=json",
+          "location_auto_message": "We have automatically set the 'google_domain', 'gl' and 'hl' parameters to match the supplied location of 'Brazil'. You can stop this behaviour by setting the 'location_auto' parameter to 'false'."
+        }
+      ]
     },
-    {
-        "img": "https://static1-br.millenium.gg/articles/6/14/76/6/@/157355-valorant-amp_main_media-1.jpg",
-        "game": "Valorant",
-        "title": "TORNEIOS DE COMUNIDADE - 19/05 A 25/05.",
-        "link": "https://playvalorant.com/pt-br/news/community/torneios-de-comunidade-19-05-a-25-05/"
+    "search_information": {
+      "original_query_yields_zero_results": false,
+      "search_tabs": [
+        {
+          "position": 1,
+          "text": "Todas",
+          "link": "https://www.google.com.br/search?q=Mortal+Kombat&num=5&gl=br&hl=pt&source=lnms&sa=X&ved=2ahUKEwjKgNelloD_AhWCNOwKHcijCywQ_AUoAHoECAIQAg"
+        },
+        {
+          "position": 2,
+          "text": "Imagens",
+          "link": "https://www.google.com.br/search?q=Mortal+Kombat&num=5&gl=br&hl=pt&tbm=isch&source=lnms&tbs=qdr:d&sa=X&ved=2ahUKEwjKgNelloD_AhWCNOwKHcijCywQ_AUoAXoECAIQAw"
+        },
+        {
+          "position": 3,
+          "text": "Vídeos",
+          "link": "https://www.google.com.br/search?q=Mortal+Kombat&num=5&gl=br&hl=pt&tbm=vid&source=lnms&tbs=qdr:d&sa=X&ved=2ahUKEwjKgNelloD_AhWCNOwKHcijCywQ_AUoA3oECAIQBQ"
+        },
+        {
+          "position": 4,
+          "text": "Shopping",
+          "link": "https://www.google.com.br/search?q=Mortal+Kombat&num=5&gl=br&hl=pt&tbm=shop&source=lnms&sa=X&ved=2ahUKEwjKgNelloD_AhWCNOwKHcijCywQ_AUoBHoECAIQBg"
+        }
+      ],
+      "total_results": 12700,
+      "time_taken_displayed": 0.28,
+      "detected_location": "Brasil"
     },
-    {
-        "img": "https://www.brawlhalla.com/c/uploads/2023/05/100Mpn_1920x1080-980x551.jpg",
-        "game": "Brawlhalla",
-        "title": "COMEMORANDO 100 MILHÕES DE BRAWLERS! – PATCH 7.08.",
-        "link": "https://www.brawlhalla.com/news/celebrating-100-million-brawlers-patch-7-08/"
+    "pagination": {
+      "pages": [
+        {
+          "current": 1,
+          "next": "https://www.google.com.br/search?q=Mortal+Kombat&num=5&gl=br&hl=pt&tbs=qdr:d&tbm=nws&ei=RslmZMrFFYLpsAfIx67gAg&start=5&sa=N&ved=2ahUKEwjKgNelloD_AhWCNOwKHcijCywQ8NMDegQIBBAW",
+          "other_pages": [
+            {
+              "page": 2,
+              "link": "https://www.google.com.br/search?q=Mortal+Kombat&num=5&gl=br&hl=pt&tbs=qdr:d&tbm=nws&ei=RslmZMrFFYLpsAfIx67gAg&start=5&sa=N&ved=2ahUKEwjKgNelloD_AhWCNOwKHcijCywQ8tMDegQIBBAE"
+            },
+            {
+              "page": 3,
+              "link": "https://www.google.com.br/search?q=Mortal+Kombat&num=5&gl=br&hl=pt&tbs=qdr:d&tbm=nws&ei=RslmZMrFFYLpsAfIx67gAg&start=10&sa=N&ved=2ahUKEwjKgNelloD_AhWCNOwKHcijCywQ8tMDegQIBBAG"
+            },
+            {
+              "page": 4,
+              "link": "https://www.google.com.br/search?q=Mortal+Kombat&num=5&gl=br&hl=pt&tbs=qdr:d&tbm=nws&ei=RslmZMrFFYLpsAfIx67gAg&start=15&sa=N&ved=2ahUKEwjKgNelloD_AhWCNOwKHcijCywQ8tMDegQIBBAI"
+            },
+            {
+              "page": 5,
+              "link": "https://www.google.com.br/search?q=Mortal+Kombat&num=5&gl=br&hl=pt&tbs=qdr:d&tbm=nws&ei=RslmZMrFFYLpsAfIx67gAg&start=20&sa=N&ved=2ahUKEwjKgNelloD_AhWCNOwKHcijCywQ8tMDegQIBBAK"
+            },
+            {
+              "page": 6,
+              "link": "https://www.google.com.br/search?q=Mortal+Kombat&num=5&gl=br&hl=pt&tbs=qdr:d&tbm=nws&ei=RslmZMrFFYLpsAfIx67gAg&start=25&sa=N&ved=2ahUKEwjKgNelloD_AhWCNOwKHcijCywQ8tMDegQIBBAM"
+            },
+            {
+              "page": 7,
+              "link": "https://www.google.com.br/search?q=Mortal+Kombat&num=5&gl=br&hl=pt&tbs=qdr:d&tbm=nws&ei=RslmZMrFFYLpsAfIx67gAg&start=30&sa=N&ved=2ahUKEwjKgNelloD_AhWCNOwKHcijCywQ8tMDegQIBBAO"
+            },
+            {
+              "page": 8,
+              "link": "https://www.google.com.br/search?q=Mortal+Kombat&num=5&gl=br&hl=pt&tbs=qdr:d&tbm=nws&ei=RslmZMrFFYLpsAfIx67gAg&start=35&sa=N&ved=2ahUKEwjKgNelloD_AhWCNOwKHcijCywQ8tMDegQIBBAQ"
+            },
+            {
+              "page": 9,
+              "link": "https://www.google.com.br/search?q=Mortal+Kombat&num=5&gl=br&hl=pt&tbs=qdr:d&tbm=nws&ei=RslmZMrFFYLpsAfIx67gAg&start=40&sa=N&ved=2ahUKEwjKgNelloD_AhWCNOwKHcijCywQ8tMDegQIBBAS"
+            },
+            {
+              "page": 10,
+              "link": "https://www.google.com.br/search?q=Mortal+Kombat&num=5&gl=br&hl=pt&tbs=qdr:d&tbm=nws&ei=RslmZMrFFYLpsAfIx67gAg&start=45&sa=N&ved=2ahUKEwjKgNelloD_AhWCNOwKHcijCywQ8tMDegQIBBAU"
+            }
+          ],
+          "api_pagination": {
+            "next": "https://api.serpwow.com/live/search?api_key=7D379056FD6C490BB46CC38D1A917DE8&engine=google&search_type=news&q=Mortal%20Kombat&news_type=all&location=Brazil&google_domain=google.com.br&gl=br&hl=pt&time_period=last_day&sort_by=relevance&max_page=1&output=json&id=req0&page=2&num=5",
+            "other_pages": [
+              {
+                "page": 2,
+                "link": "https://api.serpwow.com/live/search?api_key=7D379056FD6C490BB46CC38D1A917DE8&engine=google&search_type=news&q=Mortal%20Kombat&news_type=all&location=Brazil&google_domain=google.com.br&gl=br&hl=pt&time_period=last_day&sort_by=relevance&max_page=1&output=json&id=req0&page=2&num=5"
+              },
+              {
+                "page": 3,
+                "link": "https://api.serpwow.com/live/search?api_key=7D379056FD6C490BB46CC38D1A917DE8&engine=google&search_type=news&q=Mortal%20Kombat&news_type=all&location=Brazil&google_domain=google.com.br&gl=br&hl=pt&time_period=last_day&sort_by=relevance&max_page=1&output=json&id=req0&page=3&num=5"
+              },
+              {
+                "page": 4,
+                "link": "https://api.serpwow.com/live/search?api_key=7D379056FD6C490BB46CC38D1A917DE8&engine=google&search_type=news&q=Mortal%20Kombat&news_type=all&location=Brazil&google_domain=google.com.br&gl=br&hl=pt&time_period=last_day&sort_by=relevance&max_page=1&output=json&id=req0&page=4&num=5"
+              },
+              {
+                "page": 5,
+                "link": "https://api.serpwow.com/live/search?api_key=7D379056FD6C490BB46CC38D1A917DE8&engine=google&search_type=news&q=Mortal%20Kombat&news_type=all&location=Brazil&google_domain=google.com.br&gl=br&hl=pt&time_period=last_day&sort_by=relevance&max_page=1&output=json&id=req0&page=5&num=5"
+              },
+              {
+                "page": 6,
+                "link": "https://api.serpwow.com/live/search?api_key=7D379056FD6C490BB46CC38D1A917DE8&engine=google&search_type=news&q=Mortal%20Kombat&news_type=all&location=Brazil&google_domain=google.com.br&gl=br&hl=pt&time_period=last_day&sort_by=relevance&max_page=1&output=json&id=req0&page=6&num=5"
+              },
+              {
+                "page": 7,
+                "link": "https://api.serpwow.com/live/search?api_key=7D379056FD6C490BB46CC38D1A917DE8&engine=google&search_type=news&q=Mortal%20Kombat&news_type=all&location=Brazil&google_domain=google.com.br&gl=br&hl=pt&time_period=last_day&sort_by=relevance&max_page=1&output=json&id=req0&page=7&num=5"
+              },
+              {
+                "page": 8,
+                "link": "https://api.serpwow.com/live/search?api_key=7D379056FD6C490BB46CC38D1A917DE8&engine=google&search_type=news&q=Mortal%20Kombat&news_type=all&location=Brazil&google_domain=google.com.br&gl=br&hl=pt&time_period=last_day&sort_by=relevance&max_page=1&output=json&id=req0&page=8&num=5"
+              },
+              {
+                "page": 9,
+                "link": "https://api.serpwow.com/live/search?api_key=7D379056FD6C490BB46CC38D1A917DE8&engine=google&search_type=news&q=Mortal%20Kombat&news_type=all&location=Brazil&google_domain=google.com.br&gl=br&hl=pt&time_period=last_day&sort_by=relevance&max_page=1&output=json&id=req0&page=9&num=5"
+              },
+              {
+                "page": 10,
+                "link": "https://api.serpwow.com/live/search?api_key=7D379056FD6C490BB46CC38D1A917DE8&engine=google&search_type=news&q=Mortal%20Kombat&news_type=all&location=Brazil&google_domain=google.com.br&gl=br&hl=pt&time_period=last_day&sort_by=relevance&max_page=1&output=json&id=req0&page=10&num=5"
+              }
+            ]
+          }
+        }
+      ]
     },
-    {
-        "img": "https://corujaogames.com.br/wp-content/uploads/2021/07/sea-of-thieves-piratas-do-caribe.png",
-        "game": "Sea of Thieves",
-        "title": "DOIS MUNDOS PIRATAS SE COMBINAM EM SEA OF THIEVES: A PIRATE’S LIFE.",
-        "link": "https://www.seaofthieves.com/pt-br/a-pirates-life"
-    },
-    {
-        "img": "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt03586d93503e1154/64652a8d30b8391102fd616b/PL2023ResultadoEtapa1_Banner.jpg",
-        "game": "Teamfight Tactics",
-        "title": "PROLEGENDS 2023: RED VCLF VENCE A ETAPA 1 E É UM DOS CLASSIFICADOS AO MUNDIAL.",
-        "link": "https://teamfighttactics.leagueoflegends.com/pt-br/news/esports/prolegends-2023-red-vclf-vence-a-etapa-1-e-e-um-dos-classificados-ao-mundial/"
-    }
-]
+    "news_results": [
+      {
+        "position": 1,
+        "game": "Mortal Kombat",
+        "title": "'Mortal Kombat 1' ganha primeiro trailer; ASSISTA",
+        "link": "https://g1.globo.com/pop-arte/games/noticia/2023/05/18/mortal-kombat-1-ganha-primeiro-trailer.ghtml",
+        "domain": "g1.globo.com",
+        "source": "G1",
+        "date": "10 horas atrás",
+        "date_utc": "2023-05-18T14:56:39.470Z",
+        "snippet": "\"Mortal Kombat 1\" ganhou o primeiro trailer nesta quinta-feira (18). A Warner Bros. comunicou o lançamento do jogo para o dia 19 de setembro para Nintendo...",
+        "thumbnail": "https://www.outerspace.com.br/wp-content/uploads/2023/05/mortal-kombat-1.jpg",
+        "page": "1",
+        "position_overall": 1
+      },
+      {
+        "position": 2,
+        "game": "Mortal Kombat",
+        "title": "Mortal Kombat 1 (MK1) ganha trailer e chega ainda em 2023; veja detalhes",
+        "link": "https://www.techtudo.com.br/noticias/2023/05/mortal-kombat-1-e-anunciado-para-2023-veja-personagens-e-detalhes-edjogos.ghtml",
+        "domain": "www.techtudo.com.br",
+        "source": "TechTudo",
+        "date": "10 horas atrás",
+        "date_utc": "2023-05-18T14:56:39.473Z",
+        "snippet": "Mortal Kombat 1 (MK1) ganha trailer e chega ainda em 2023; veja detalhes. Novo jogo de luta da NetherRealm Studio chega para PC, PS5, Xbox Series X/S e Nintendo...",
+        "thumbnail": "https://s2.glbimg.com/cGbXgQlqOZqG6xkVxDRxEp62F7c=/0x0:2832x1166/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2023/A/F/UICFk4SfaEtCFQvdEcyA/captura-de-tela-2023-05-18-as-11.47.06.png",
+        "page": "1",
+        "position_overall": 2
+      },
+      {
+        "position": 3,
+        "game": "Mortal Kombat",
+        "title": "Mortal Kombat 1 é anunciado com trailer sangrento e chega ...",
+        "link": "https://br.ign.com/mortal-kombat-12/108968/news/mortal-kombat-1-e-anunciado-com-trailer-sangrento-e-chega-ainda-em-2023",
+        "domain": "br.ign.com",
+        "source": "IGN Brasil",
+        "date": "10 horas atrás",
+        "date_utc": "2023-05-18T14:56:39.476Z",
+        "snippet": "Mortal Kombat 1 é real, foi oficialmente anunciado e chega para PC, PlayStation 5, Nintendo Switch, Xbox Series X e Series S ainda este ano,...",
+        "thumbnail": "https://img.olhardigital.com.br/wp-content/uploads/2023/05/Mortal-Kombat.png",
+        "page": "1",
+        "position_overall": 3
+      },
+      {
+        "position": 4,
+        "game": "Mortal Kombat",
+        "title": "Mortal Kombat 1 será lançado em setembro com novo universo",
+        "link": "https://m.leiaja.com/tecnologia/2023/05/18/mortal-kombat-1-sera-lancado-em-setembro-com-novo-universo/",
+        "domain": "m.leiaja.com",
+        "source": "LeiaJá",
+        "date": "9 horas atrás",
+        "date_utc": "2023-05-18T15:56:39.481Z",
+        "snippet": "Acabou a espera: Mortal Kombat 1 será lançado em 19 de setembro de 2023. A informação da Warner Bros. Games e da NetherRealm Studios é acompanhada de um...",
+        "thumbnail": "https://img.olhardigital.com.br/wp-content/uploads/2023/05/Mortal-Kombat.png",
+        "page": "1",
+        "position_overall": 4
+      },
+      {
+        "position": 5,
+        "game": "Mortal Kombat",
+        "title": "Essa é uma das cenas mais tristes de Mortal Kombat",
+        "link": "https://www.sbt.com.br/variedades/sbt-games/fiquepordentro/247782-uma-das-cenas-mais-tristes-de-mortal-kombat",
+        "domain": "www.sbt.com.br",
+        "source": "SBT",
+        "date": "5 horas atrás",
+        "date_utc": "2023-05-18T19:56:39.484Z",
+        "snippet": "Neste jogo, Liu Kang é morto por Shang Tsung e Quan Chi, os vilões principais da trama. Sua morte é um momento impactante na história da franquia Mortal Kombat,...",
+        "thumbnail": "https://manualdosgames.com/wp-content/uploads/2023/05/Mortal-Kombat-1-scorpion-e-subzero-1024x576.jpg",
+        "page": "1",
+        "position_overall": 5
+      },
+      {
+        "position": 6,
+        "game": "Mortal Kombat",
+        "title": "Essa é uma das cenas mais tristes de Mortal Kombat",
+        "link": "https://www.sbt.com.br/variedades/sbt-games/fiquepordentro/247782-uma-das-cenas-mais-tristes-de-mortal-kombat",
+        "domain": "www.sbt.com.br",
+        "source": "SBT",
+        "date": "5 horas atrás",
+        "date_utc": "2023-05-18T19:56:39.484Z",
+        "snippet": "Neste jogo, Liu Kang é morto por Shang Tsung e Quan Chi, os vilões principais da trama. Sua morte é um momento impactante na história da franquia Mortal Kombat,...",
+        "thumbnail": "https://manualdosgames.com/wp-content/uploads/2023/05/Mortal-Kombat-1-scorpion-e-subzero-1024x576.jpg",
+        "page": "1",
+        "position_overall": 6
+      },
+      {
+        "position": 7,
+        "game": "Mortal Kombat",
+        "title": "Essa é uma das cenas mais tristes de Mortal Kombat",
+        "link": "https://www.sbt.com.br/variedades/sbt-games/fiquepordentro/247782-uma-das-cenas-mais-tristes-de-mortal-kombat",
+        "domain": "www.sbt.com.br",
+        "source": "SBT",
+        "date": "5 horas atrás",
+        "date_utc": "2023-05-18T19:56:39.484Z",
+        "snippet": "Neste jogo, Liu Kang é morto por Shang Tsung e Quan Chi, os vilões principais da trama. Sua morte é um momento impactante na história da franquia Mortal Kombat,...",
+        "thumbnail": "https://manualdosgames.com/wp-content/uploads/2023/05/Mortal-Kombat-1-scorpion-e-subzero-1024x576.jpg",
+        "page": "1",
+        "position_overall": 7
+      },
+      {
+        "position": 8,
+        "game": "Mortal Kombat",
+        "title": "Essa é uma das cenas mais tristes de Mortal Kombat",
+        "link": "https://www.sbt.com.br/variedades/sbt-games/fiquepordentro/247782-uma-das-cenas-mais-tristes-de-mortal-kombat",
+        "domain": "www.sbt.com.br",
+        "source": "SBT",
+        "date": "5 horas atrás",
+        "date_utc": "2023-05-18T19:56:39.484Z",
+        "snippet": "Neste jogo, Liu Kang é morto por Shang Tsung e Quan Chi, os vilões principais da trama. Sua morte é um momento impactante na história da franquia Mortal Kombat,...",
+        "thumbnail": "https://manualdosgames.com/wp-content/uploads/2023/05/Mortal-Kombat-1-scorpion-e-subzero-1024x576.jpg",
+        "page": "1",
+        "position_overall": 8
+      }
+    ]
+  }
