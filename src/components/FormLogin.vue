@@ -48,7 +48,7 @@ export default {
           if (json.token) {
             // Se um token for retornado na resposta, armazena-o no localStorage
             localStorage.setItem("auth-token", json.token);
-            this.$router.push("/commuity"); // Navega para a rota '/perfil'
+            this.$router.push("/community"); // Navega para a rota '/perfil'
           } else {
             this.dataI = true; // Exibe um alerta se os dados forem inválidos
           }

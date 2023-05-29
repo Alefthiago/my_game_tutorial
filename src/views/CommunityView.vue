@@ -3,7 +3,10 @@
     <div class="titlePage">
       <p class="fs fontBold">Comunidade</p>
     </div>
-    <FormAddPost />
+    <FormAddPost v-if="userLogin" />
+    <div>
+      <p >Para postar faça o login <router-link to="/login">aqui</router-link></p>
+    </div>
     <PostCommunity/>
   </div>
 </template>
@@ -15,6 +18,16 @@ export default {
   components: {
     FormAddPost,
     PostCommunity
+},
+computed: {
+  userLogin () {
+    const user = localStorage.getItem('auth-token'); 
+    if(user) {
+      return true;
+    } else {
+      return false;
+    }
+   }
 }
 }
 </script>

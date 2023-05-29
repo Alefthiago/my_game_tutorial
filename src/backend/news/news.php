@@ -12,6 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET")
     {
         $news = array(
             'img' => $data['news_results'][$i]['thumbnail'],
+            'game' => $data['news_results'][$i]['game'],
             'title' => $data['news_results'][$i]['title'],
             'link' => $data['news_results'][$i]['link']
         );

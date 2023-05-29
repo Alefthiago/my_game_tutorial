@@ -30,7 +30,7 @@ export default {
     filteredNews() {
       const searchQuery = this.searchQuery.toLowerCase();
       return this.news.filter(item => {
-        const game = item.title.toLowerCase();
+        const game = item.game.toLowerCase();
         return game.includes(searchQuery);
       });
     },
