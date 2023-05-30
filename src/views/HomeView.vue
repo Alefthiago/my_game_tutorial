@@ -12,28 +12,12 @@
 import PostNews from "@/components/PostNews.vue";
 
 export default {
-  data() {
-    return {
-      root: false,
-    };
-  },
   components: {
     PostNews,
    // FormAddNews,
   },
   created() {
-    this.$getUserType()
-      .then((response) => {
-        if (response.data === "admin") {
-          this.root = true;
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  },
-  mounted() {
-    
+    this.$store.commit('checkLoginOrUser');
   },
 };
 </script>

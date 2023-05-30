@@ -28,22 +28,21 @@
               </a>
 
               <ul class="dropdown-menu dropdown-menu-dark">
-                <!-- Link para a página de Login -->
-                <router-link class="dropdown-item fontItalic" to="/login">Entrar</router-link>
-
-                <!-- Se o usuário estiver logado, exibir opções adicionais -->
-                <div v-if="userLogin">
-                  <li>
-                    <hr class="dropdown-divider">
-                  </li>
+                <div v-if="$store.state.userLogin">
                   <!-- Link para a página de Alterar Dados -->
                   <router-link class="dropdown-item fontItalic" to="/perfil">Alterar dados</router-link>
-
+                  
                   <li>
                     <hr class="dropdown-divider">
                   </li>
                   <!-- Opção para fazer logout -->
                   <a class="dropdown-item fontItalic" @click="logout">Sair</a>
+                </div>
+                <div v-else>
+                  <!-- Link para a página de Login -->
+                  <router-link class="dropdown-item fontItalic" to="/login">Entrar</router-link>
+  
+                  <!-- Se o usuário estiver logado, exibir opções adicionais -->
                 </div>
               </ul>
             </li>
@@ -53,44 +52,17 @@
     </div>
   </nav>
 </template>
-
 <script>
+
 export default {
-  data() {
-    return {
-
-    };
-  },
-  computed: {
-    /**
-     * Obtém o caminho completo da rota atual
-     * @returns {string} - Caminho completo da rota atual
-     */
-    rotaAtual() {
-      return this.$router.currentRoute.value.fullPath;
-    },
-
-    /**
-     * Verifica se o usuário está logado
-     * @returns {boolean} - True se o usuário estiver logado, False caso contrário
-     */
-    userLogin() {
-      let user = localStorage.getItem('auth-token'); 
-      return !!user; // Retorna true se user existir, caso contrário retorna false
-    }
-  },
   methods: {
-    /**
-     * Função para fazer logout do usuário
-     */
     logout() {
       localStorage.removeItem('auth-token');
       this.$router.push('/');
-    }
-  }
+    },
+  },
 };
 </script>
-
 <style scoped>
 .bg {
   background-image: linear-gradient(to right, #091428, #0A1428);

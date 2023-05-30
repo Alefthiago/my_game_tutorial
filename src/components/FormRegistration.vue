@@ -4,19 +4,16 @@
       <div class="mb-3">
         <label for="email" class="form-label fontBold">Email:</label>
         <input v-model="email" type="email" class="form-control fontItalic" id="email" placeholder="Email" required>
-        {{ email }}
         <p v-if="invalidEmail">Email inválido!</p>
       </div>
       <div class="mb-3">
         <label for="name" class="form-label fontBold">Nome:</label>
         <input v-model="name" type="text" class="form-control fontItalic" id="name" placeholder="Nome" required>
-        {{ name }}
       </div>
       <div class="mb-3">
         <label for="userName" class="form-label fontBold">Usuário:</label>
         <input v-model="userName" type="text" class="form-control fontItalic" id="userName" placeholder="Usuário"
           required>
-        {{ userName }}
         <p v-if="invalidUser">Nome de Usuário inválido!</p>
       </div>
       <div class="mb-3">

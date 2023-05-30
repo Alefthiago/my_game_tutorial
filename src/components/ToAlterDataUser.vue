@@ -1,20 +1,25 @@
 <template>
     <div>
-        <table>
-            <tbody>
-                <tr>
-                    <td>email</td>
-                    <td>nome</td>
-                    <td>usuario</td>
-                    <td>senha</td>
-                </tr>
-            </tbody>
-        </table>
+        
     </div>
 </template>
 
 <script>
+import axios from 'axios';
 
+
+export default {
+    data () {
+        return {
+            email: '',
+            name: '',
+            userName: ''
+        }
+    },
+    created () {
+        axios.get()        
+    }
+}
 </script>
 
 <style scoped>

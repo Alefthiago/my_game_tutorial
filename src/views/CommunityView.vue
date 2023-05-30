@@ -7,7 +7,7 @@
     </div>
 
     <!-- Formulário para adicionar post (visível apenas se o usuário estiver logado) -->
-    <FormAddPost v-if="userLogin"/>
+    <FormAddPost v-if="$store.state.userLogin"/>
 
     <!-- Mensagem para convidar o usuário a fazer login -->
     <div v-else>
@@ -28,17 +28,9 @@ export default {
     FormAddPost,
     PostCommunity
   },
-
-  computed: {
-    /**
-     * Verifica se o usuário está logado
-     * @returns {boolean} - True se o usuário estiver logado, False caso contrário
-     */
-    userLogin() {
-      const user = localStorage.getItem('auth-token');
-      return !!user; // Retorna true se user existir, caso contrário retorna false
-    }
-  }
+  created () {
+    this.$store.commit('checkLoginOrUser');
+  },  
 }
 </script>
 

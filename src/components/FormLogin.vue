@@ -37,7 +37,7 @@ export default {
       axios
         .post("http://localhost:9090/token/auth.php", {
           emailOrUser: this.emailOrUser.toLowerCase(),
-          password: this.password.toLowerCase(),
+          password: this.password,
         })
         .then((response) => {
           let json = response.data;

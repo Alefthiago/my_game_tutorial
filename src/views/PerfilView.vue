@@ -8,17 +8,9 @@
 <script>
 import ToAlterDataUser from '@/components/ToAlterDataUser.vue';
 export default {
-  data() {
-    return {
-      // LUGAR PARA CRIAR VARIAVEIS
-      token: localStorage.getItem('auth-token')
-    };
-  },
   created() {
+    this.$store.commit('checkLoginOrUser');
     this.$authUser();
-    
-  },
-  methods: {
   },
   components: {
     ToAlterDataUser

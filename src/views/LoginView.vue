@@ -9,16 +9,11 @@
 <script>
 import FormLogin from '@/components/FormLogin.vue'
 export default {
-  data () {
-    return {
-      // LUGAR PARA CRIAR VARIAVEIS
-    }
-  },
     components: {
         FormLogin
     },
     created () {
-      
+      this.$store.commit('checkLoginOrUser');
     }
 
 }

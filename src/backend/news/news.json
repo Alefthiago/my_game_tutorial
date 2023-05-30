@@ -170,6 +170,19 @@
       },
       {
         "position": 2,
+        "game": "Valorant",
+        "title": "TORNEIOS DE COMUNIDADE - 26/05 A 01/06",
+        "link": "https://playvalorant.com/pt-br/news/community/torneios-de-comunidade-26-05-a-01-06/",
+        "domain": "https://playvalorant.com/",
+        "source": "RIOT",
+        "date": "5 horas atrás",
+        "date_utc": "2023-05-18T19:56:39.484Z",
+        "thumbnail": "https://sm.ign.com/ign_br/game/v/valorant/valorant_5mxf.jpg",
+        "page": "1",
+        "position_overall": 2
+      },
+      {
+        "position": 3,
         "game": "Mortal Kombat",
         "title": "Mortal Kombat 1 (MK1) ganha trailer e chega ainda em 2023; veja detalhes",
         "link": "https://www.techtudo.com.br/noticias/2023/05/mortal-kombat-1-e-anunciado-para-2023-veja-personagens-e-detalhes-edjogos.ghtml",
@@ -180,10 +193,10 @@
         "snippet": "Mortal Kombat 1 (MK1) ganha trailer e chega ainda em 2023; veja detalhes. Novo jogo de luta da NetherRealm Studio chega para PC, PS5, Xbox Series X/S e Nintendo...",
         "thumbnail": "https://s2.glbimg.com/cGbXgQlqOZqG6xkVxDRxEp62F7c=/0x0:2832x1166/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2023/A/F/UICFk4SfaEtCFQvdEcyA/captura-de-tela-2023-05-18-as-11.47.06.png",
         "page": "1",
-        "position_overall": 2
+        "position_overall": 3
       },
       {
-        "position": 3,
+        "position": 4,
         "game": "Mortal Kombat",
         "title": "Mortal Kombat 1 é anunciado com trailer sangrento e chega ...",
         "link": "https://br.ign.com/mortal-kombat-12/108968/news/mortal-kombat-1-e-anunciado-com-trailer-sangrento-e-chega-ainda-em-2023",
@@ -194,10 +207,23 @@
         "snippet": "Mortal Kombat 1 é real, foi oficialmente anunciado e chega para PC, PlayStation 5, Nintendo Switch, Xbox Series X e Series S ainda este ano,...",
         "thumbnail": "https://img.olhardigital.com.br/wp-content/uploads/2023/05/Mortal-Kombat.png",
         "page": "1",
-        "position_overall": 3
+        "position_overall": 4
       },
       {
-        "position": 4,
+        "position": 5,
+        "game": "League of Legends",
+        "title": "NOTAS DA ATUALIZAÇÃO 13.10",
+        "link": "https://www.leagueoflegends.com/pt-br/news/game-updates/notas-da-atualizacao-13-10/",
+        "domain": "www.leagueoflegends.com",
+        "source": "RIOT",
+        "date": "5 horas atrás",
+        "date_utc": "2023-05-18T19:56:39.484Z",
+        "thumbnail": "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltccdc2c17c7c18731/645c26df6d595a1e68fa300a/2022-Key-Art.jpg",
+        "page": "1",
+        "position_overall": 5
+      },
+      {
+        "position": 6,
         "game": "Mortal Kombat",
         "title": "Mortal Kombat 1 será lançado em setembro com novo universo",
         "link": "https://m.leiaja.com/tecnologia/2023/05/18/mortal-kombat-1-sera-lancado-em-setembro-com-novo-universo/",
@@ -208,10 +234,10 @@
         "snippet": "Acabou a espera: Mortal Kombat 1 será lançado em 19 de setembro de 2023. A informação da Warner Bros. Games e da NetherRealm Studios é acompanhada de um...",
         "thumbnail": "https://img.olhardigital.com.br/wp-content/uploads/2023/05/Mortal-Kombat.png",
         "page": "1",
-        "position_overall": 4
+        "position_overall": 6
       },
       {
-        "position": 5,
+        "position": 7,
         "game": "Mortal Kombat",
         "title": "Essa é uma das cenas mais tristes de Mortal Kombat",
         "link": "https://www.sbt.com.br/variedades/sbt-games/fiquepordentro/247782-uma-das-cenas-mais-tristes-de-mortal-kombat",
@@ -221,32 +247,6 @@
         "date_utc": "2023-05-18T19:56:39.484Z",
         "snippet": "Neste jogo, Liu Kang é morto por Shang Tsung e Quan Chi, os vilões principais da trama. Sua morte é um momento impactante na história da franquia Mortal Kombat,...",
         "thumbnail": "https://manualdosgames.com/wp-content/uploads/2023/05/Mortal-Kombat-1-scorpion-e-subzero-1024x576.jpg",
-        "page": "1",
-        "position_overall": 5
-      },
-      {
-        "position": 6,
-        "game": "Valorant",
-        "title": "TORNEIOS DE COMUNIDADE - 26/05 A 01/06",
-        "link": "https://playvalorant.com/pt-br/news/community/torneios-de-comunidade-26-05-a-01-06/",
-        "domain": "https://playvalorant.com/",
-        "source": "RIOT",
-        "date": "5 horas atrás",
-        "date_utc": "2023-05-18T19:56:39.484Z",
-        "thumbnail": "https://sm.ign.com/ign_br/game/v/valorant/valorant_5mxf.jpg",
-        "page": "1",
-        "position_overall": 6
-      },
-      {
-        "position": 7,
-        "game": "League of Legends",
-        "title": "NOTAS DA ATUALIZAÇÃO 13.10",
-        "link": "https://www.leagueoflegends.com/pt-br/news/game-updates/notas-da-atualizacao-13-10/",
-        "domain": "www.leagueoflegends.com",
-        "source": "RIOT",
-        "date": "5 horas atrás",
-        "date_utc": "2023-05-18T19:56:39.484Z",
-        "thumbnail": "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltccdc2c17c7c18731/645c26df6d595a1e68fa300a/2022-Key-Art.jpg",
         "page": "1",
         "position_overall": 7
       },
