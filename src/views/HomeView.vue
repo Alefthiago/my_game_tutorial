@@ -1,8 +1,5 @@
 <template>
   <div class="home">
-   <!--
-     <FormAddNews v-if="root" />
-   -->
    <div class="container-title">
      <p class="fs fontBold">Notícias</p>
    </div> 
@@ -13,31 +10,14 @@
 
 <script>
 import PostNews from "@/components/PostNews.vue";
-//import FormAddNews from "@/components/FormAddNews.vue";
 
 export default {
-  data() {
-    return {
-      root: false,
-    };
-  },
   components: {
     PostNews,
    // FormAddNews,
   },
   created() {
-    this.$getUserType()
-      .then((response) => {
-        if (response.data === "admin") {
-          this.root = true;
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  },
-  mounted() {
-    
+    this.$store.commit('checkLoginOrUser');
   },
 };
 </script>

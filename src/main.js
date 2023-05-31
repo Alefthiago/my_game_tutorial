@@ -29,20 +29,6 @@ app.config.globalProperties.$authUser = async () => {
     }
   }
 };
-
-app.config.globalProperties.$getUserType = () => {
-  let token = localStorage.getItem('auth-token');
-  if (token) {
-    return axios.get('http://localhost:9090/token/getUserType.php', {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    });
-  } else {
-    return Promise.reject('No token found');
-  }
-};
-
 app.config.globalProperties.$logoutUser = () => {
   localStorage.removeItem('auth-token');
   router.push('/');

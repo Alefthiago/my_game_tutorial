@@ -34,7 +34,6 @@ export default {
     },
     methods:{
         addPost () {
-            console.log("alo");
         }        
     }
 }
