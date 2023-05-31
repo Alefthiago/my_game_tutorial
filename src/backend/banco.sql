@@ -32,6 +32,7 @@ CREATE TABLE COMMENTS
 (
   comment_id INT NOT NULL AUTO_INCREMENT,
   comment_text TEXT(500) NOT NULL,
+  comment_link VARCHAR(500),
   comment_date DATETIME(6) NOT NULL,
   USERS_user_id INT NOT NULL,
   POSTS_post_id INT NOT NULL,
