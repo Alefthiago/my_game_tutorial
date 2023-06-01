@@ -56,14 +56,14 @@ form {
   font-size: 5rem;
 }
 .containerFormPost {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 80vw;
-  height: auto;
-  margin-left: 10vh;
-  border-bottom: 1px solid #A09B8C;
+  display: flex; /* Essa propriedade define o elemento como um container flexível */
+  flex-direction: column; /*  Essa propriedade define a direção principal do layout flexível como uma coluna */
+  justify-content: center; /* Essa propriedade alinha os itens verticalmente no centro do container flexível */
+  align-items: center; /* Essa propriedade alinha os itens horizontalmente no centro do container flexível */
+  width: 80vw; /* Essa propriedade define a largura do elemento */
+  height: auto; /* Essa propriedade define a altura do elemento como automática */
+  margin-left: 10vh; /* Essa propriedade define a margem esquerda do elemento */
+  border-bottom: 1px solid #A09B8C; /* Essa propriedade define uma borda inferior */
   
 }
 .fontItalic{
