@@ -49,8 +49,7 @@ form {
   height: 550px; /* Define a altura do formulário */
   margin-bottom: 65px; /* Adiciona uma margem ao formulário, criando um espaçamento */
   padding: 25px; /* Define um preenchimento interno ao redor do conteúdo do formulário */
-  font-size: 1.3rem; /* Define o tamando da fonte de texto */
-  
+  font-size: 1.3rem; /* Define o tamando da fonte de texto */  
 
 }
 .postar {
@@ -67,20 +66,16 @@ form {
   border-bottom: 1px solid #A09B8C;
   
 }
-
 .fontItalic{
-  color: white;
   border: 0;
   border-bottom: 2px solid rgb(200, 200, 200);
   outline: 0;
-  color: black;
 }   
 
-.fontBold{
+label{
   color: black;
 }
-
- button {
+button {
   font-size: 2rem;
   width: 12vw;
   border-radius: 55px;
