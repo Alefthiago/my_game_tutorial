@@ -1,8 +1,8 @@
-CREATE SCHEMA projetoepratica DEFAULT CHARACTER SET utf8 ;
-USE projetoepratica ;
+CREATE SCHEMA projetoepratica2 DEFAULT CHARACTER SET utf8 ;
+USE projetoepratica2 ;
 
 
-CREATE TABLE USERS 
+CREATE TABLE users 
 (
   user_id INT NOT NULL AUTO_INCREMENT,
   user_name VARCHAR(100) NOT NULL,
@@ -10,51 +10,51 @@ CREATE TABLE USERS
   user_username VARCHAR(45) NOT NULL,
   user_password VARCHAR(255) NOT NULL,
   user_type ENUM('adm', 'com') NOT NULL DEFAULT 'com',
-  CONSTRAINT USERS_PK PRIMARY KEY (user_id),
+  CONSTRAINT users_pk PRIMARY KEY (user_id),
   UNIQUE INDEX email_UNIQUE (user_email ASC),
   UNIQUE INDEX username_UNIQUE (user_username ASC)
 );
 
 
-CREATE TABLE POSTS 
+CREATE TABLE posts
 (
   post_id INT NOT NULL AUTO_INCREMENT, 
   post_title VARCHAR(255) NOT NULL,
   post_content MEDIUMTEXT NOT NULL,
   post_date DATETIME(6) NOT NULL,
-  USERS_user_id INT NOT NULL,
-  CONSTRAINT POSTS_PK PRIMARY KEY (post_id),
-  CONSTRAINT POSTS_USERS_FK FOREIGN KEY (USERS_user_id) REFERENCES USERS (user_id)
+  users_user_id INT NOT NULL,
+  CONSTRAINT posts_pk PRIMARY KEY (post_id),
+  CONSTRAINT posts_users_fk FOREIGN KEY (users_user_id) REFERENCES users (user_id)
 );
 
 
-CREATE TABLE COMMENTS 
+CREATE TABLE comments  
 (
   comment_id INT NOT NULL AUTO_INCREMENT,
   comment_text TEXT(500) NOT NULL,
   comment_link VARCHAR(500),
   comment_date DATETIME(6) NOT NULL,
-  USERS_user_id INT NOT NULL,
-  POSTS_post_id INT NOT NULL,
-  CONSTRAINT COMMENTS_PK PRIMARY KEY (comment_id),
-  CONSTRAINT COMMENTS_USERS_FK FOREIGN KEY (USERS_user_id) REFERENCES USERS (user_id),
-  CONSTRAINT COMMENTS_POSTS_FK FOREIGN KEY (POSTS_post_id) REFERENCES POSTS (post_id)
+  users_user_id INT NOT NULL,
+  posts_post_id INT NOT NULL,
+  CONSTRAINT comments_PK PRIMARY KEY (comment_id),
+  CONSTRAINT comments_users_fk FOREIGN KEY (users_user_id) REFERENCES users (user_id),
+  CONSTRAINT comments_posts_fk FOREIGN KEY (posts_post_id) REFERENCES posts (post_id)
 );
 
 
-CREATE TABLE TAGS
+CREATE TABLE tags 
 (
   tag_id INT NOT NULL AUTO_INCREMENT,
   tag_name VARCHAR(45) NOT NULL,
-  CONSTRAINT TAGS_PK PRIMARY KEY (tag_id)
+  CONSTRAINT tags_PK PRIMARY KEY (tag_id)
 );
 
 
-CREATE TABLE POSTS_has_TAGS 
+CREATE TABLE posts_has_tags 
 (
-  POSTS_post_id INT NOT NULL,
-  TAGS_tag_id INT NOT NULL,
-  CONSTRAINT POSTS_has_TAGS_PK PRIMARY KEY (POSTS_post_id, TAGS_tag_id),
-  CONSTRAINT POSTS_has_TAGS_POSTS_FK FOREIGN KEY (POSTS_post_id) REFERENCES POSTS (post_id),
-  CONSTRAINT POSTS_has_TAGS_TAGS_FK FOREIGN KEY (TAGS_tag_id) REFERENCES TAGS (tag_id)
+  posts_post_id INT NOT NULL,
+  tags_tag_id INT NOT NULL,
+  CONSTRAINT posts_has_tags_pk PRIMARY KEY (posts_post_id, tags_tag_id),
+  CONSTRAINT posts_has_tags_posts_fk FOREIGN KEY (posts_post_id) REFERENCES posts (post_id),
+  CONSTRAINT posts_has_tags_tags_fk FOREIGN KEY (tags_tag_id) REFERENCES tags (tag_id)
 );
