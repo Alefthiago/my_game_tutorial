@@ -36,7 +36,7 @@
                     <hr class="dropdown-divider">
                   </li>
                   <!-- Opção para fazer logout -->
-                  <a class="dropdown-item fontItalic" @click="logout">Sair</a>
+                  <a class="hover dropdown-item fontItalic" @click="logout">Sair</a>
                 </div>
                 <div v-else>
                   <!-- Link para a página de Login -->
@@ -72,6 +72,9 @@ export default {
 .logo {
   font-size: 2rem;
   animation: loop-animation 2s infinite;
+}
+.hover:hover {
+  cursor: pointer;
 }
 @keyframes loop-animation {
   0% {
