@@ -1,5 +1,5 @@
-CREATE SCHEMA projetoepratica2 DEFAULT CHARACTER SET utf8 ;
-USE projetoepratica2 ;
+CREATE SCHEMA projetoepratica DEFAULT CHARACTER SET utf8 ;
+USE projetoepratica ;
 
 
 CREATE TABLE users 
