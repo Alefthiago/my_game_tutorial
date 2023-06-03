@@ -6,7 +6,7 @@ header('Content-Type: application/json');
 require 'functions.php';
 require "../conn.php";
 
-$sql = $pdo->query("SELECT user_email, user_username, user_password  FROM users;");
+$sql = $pdo->query("SELECT user_email, user_username, user_password, user_type  FROM users;");
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
