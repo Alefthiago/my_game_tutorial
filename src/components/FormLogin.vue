@@ -12,7 +12,7 @@
           placeholder="Senha" required>
         <div v-if="dataI" id="emailHelp" class="form-text text-danger fontBold">Dados invalidos!</div>
       </div>
-      <button class="btn btn-secondary fontItalic">Criar</button>
+      <button class="btn btn-secondary fontItalic">Entrar</button>
       <p><router-link to="/registration" class="fontBold">Faça cadastro aqui</router-link></p>
     </form>
   </div>
