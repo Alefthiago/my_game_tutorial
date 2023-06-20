@@ -1,6 +1,5 @@
 <template>
      <div class="containerFormPost">
-      <p class="fs fontBold postar">Postar</p>
       <div class="addPost">
         <form @submit.prevent="addPost" class="border p-4  border rounded">
           <div class="mb-3">
@@ -8,7 +7,7 @@
             <input v-model="postTitle" type="text" class="form-control fontItalic" id="exampleFormControlInput1" placeholder="digite aqui...">
           </div>
           <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label fontBold">Conteudo:</label>
+            <label for="FormControlTextarea1" class="form-label fontBold">Conteudo:</label>
             <textarea v-model="postContent"  class="form-control fontItalic" rows="5" placeholder="digite aqui..."></textarea>
           </div>
           <div class="mb-3">
@@ -45,15 +44,12 @@ form {
   background-color: white; /* Cor de fundo do fortmulário */
   display: flex; /* Aplica um layout flexível como vertical */
   flex-direction: column; /* Define a direção do layout flexível como vertical */
-  width: 39vw; /* Define a largura do formulário */
-  height: 550px; /* Define a altura do formulário */
-  margin-bottom: 65px; /* Adiciona uma margem ao formulário, criando um espaçamento */
+  width: 35vw; /* Define a largura do formulário */
+  height: 500px; /* Define a altura do formulário */
   padding: 25px; /* Define um preenchimento interno ao redor do conteúdo do formulário */
   font-size: 1.3rem; /* Define o tamando da fonte de texto */  
-
-}
-.postar {
-  font-size: 5rem;
+  margin-bottom: 2vh;
+  margin-top: 2vh;
 }
 .containerFormPost {
   display: flex; /* Essa propriedade define o elemento como um container flexível */
@@ -62,7 +58,6 @@ form {
   align-items: center; /* Essa propriedade alinha os itens horizontalmente no centro do container flexível */
   width: 80vw; /* Essa propriedade define a largura do elemento */
   height: auto; /* Essa propriedade define a altura do elemento como automática */
-  margin-left: 10vh; /* Essa propriedade define a margem esquerda do elemento */
   border-bottom: 1px solid #A09B8C; /* Essa propriedade define uma borda inferior */
   
 }

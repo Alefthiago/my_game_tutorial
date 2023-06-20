@@ -18,7 +18,6 @@ export default {
   align-items: center;
   width: 80vw;
   height: auto;
-  border-bottom: 1px solid #A09B8C;
 }
 
 .titleComponent {
@@ -26,8 +25,7 @@ export default {
   min-height: 100px;
   display: flex;
   padding: 50px;
-  font-size: 5rem;
+  font-size: 3rem;
   text-shadow: 5px 5px 10px black;
-  border-bottom: 1px solid #A09B8C;
 }
 </style>

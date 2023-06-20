@@ -1,20 +1,22 @@
 <template>
-  <div class="container">
-    <form @submit.prevent="login" class="border p-4 border-2 rounded">
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label fontBold">Email:</label>
-        <input v-model="emailOrUser" type="text" class="form-control fontItalic" id="exampleInputEmail1"
-          aria-describedby="emailHelp" placeholder="Email ou Usuário" required>
+<div v-if="dataI" class="alert alert-danger" role="alert">
+  Dados invalidos!
+</div>
+  <div class="container dark-mode">
+    <form @submit.prevent="login">
+      <div class="form-group">
+        <label class="fontBold">Usuário ou Email</label>
+        <input v-model="emailOrUser" type="text" required>
       </div>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label fontBold">Senha:</label>
-        <input v-model="password" type="password" class="form-control fontItalic" id="exampleInputPassword1"
-          placeholder="Senha" required>
-        <div v-if="dataI" id="emailHelp" class="form-text text-danger fontBold">Dados invalidos!</div>
+      <label class="fontBold">Senha</label>
+      <div class="form-group">
+        <input v-model="password" type="password" required>
       </div>
-      <button class="btn btn-secondary fontItalic">Criar</button>
-      <p><router-link to="/registration" class="fontBold">Faça cadastro aqui</router-link></p>
+      <input type="submit" value="Enviar">
+      <p class="fontBold"><router-link to="/registration">Faça seu cadastro aqui!</router-link></p>
     </form>
+    <div>
+    </div>
   </div>
 </template>
 
@@ -59,15 +61,59 @@ export default {
 </script>
 
 <style scoped>
-form {
-  width: 300px;
-  height: 300px;
-  background-color: #091428;
-  box-shadow: 4px 3px 5px 2px black;
+.container {
+  margin: 0;
+  padding: 20px;
+  max-width: 30vw;
+  height: 80vh;
+  margin: 0 auto;
+  background-image: linear-gradient(-45deg,  #7e1dec7a, #480496d5, #1a0645e0, #1c0549b9);
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 10);
+}
+
+.dark-mode {
+  color: #fff;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #333;
+  color: #fff;
+}
+
+input[type="submit"] {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+input[type="submit"]:hover {
+  background-color: #0f0f0f;
 }
 
 .container {
-  height: 85vh;
+  height: 50vh;
+  margin-top: 20vh;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="titlePage">Alterar dados</h1>
+    <h1 class="titlePage">Editar conta</h1>
     <ToAlterDataUser />
   </div>
 </template>

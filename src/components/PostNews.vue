@@ -62,7 +62,7 @@ export default {
 .card {
   margin-top: 50px;
   box-shadow: 4px 5px 5px black;
-  background-image: linear-gradient(to top, #091428, #0A1428);
+  background-image: linear-gradient(to top, #180355, #120626, #180355);
 }
 
 .card:hover {

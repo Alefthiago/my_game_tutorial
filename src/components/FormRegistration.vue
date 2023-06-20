@@ -1,37 +1,37 @@
 <template>
-  <div class="container">
-    <form @submit.prevent="register" class="border p-4  border rounded">
-      <div class="mb-3">
-        <label for="email" class="form-label fontBold">Email:</label>
-        <input v-model="email" type="email" class="form-control fontItalic" id="email" placeholder="Email" required>
-        <p v-if="invalidEmail">Email inválido!</p>
+  <div class="container dark-mode">
+    <form @submit.prevent="login">
+      <div class="form-group">
+        <label class="fontBold">Email</label>
+        <input v-model="email" type="text" required>
       </div>
-      <div class="mb-3">
-        <label for="name" class="form-label fontBold">Nome:</label>
-        <input v-model="name" type="text" class="form-control fontItalic" id="name" placeholder="Nome" required>
+
+      <div class="form-group">
+        <label class="fontBold">Nome</label>
+        <input v-model="name" type="text" required>
       </div>
-      <div class="mb-3">
-        <label for="userName" class="form-label fontBold">Usuário:</label>
-        <input v-model="userName" type="text" class="form-control fontItalic" id="userName" placeholder="Usuário"
-          required>
-        <p v-if="invalidUser">Nome de Usuário inválido!</p>
+
+      <div class="form-group">
+        <label class="fontBold">Usuário</label>
+        <input v-model="userName" type="text" required>
       </div>
-      <div class="mb-3">
-        <label for="password" class="form-label fontBold">Senha:</label>
-        <input v-model="password" type="password" class="form-control fontItalic" id="password" placeholder="Senha"
-          required>
+
+      <div class="form-group">
+        <label class="fontBold">Senha</label>
+        <input v-model="password" type="password" required>
       </div>
-      <div class="mb-3">
-        <label for="confirmPassword" class="form-label fontBold">Confirmar Senha:</label>
-        <input v-model="confirmPassword" type="password" class="form-control fontItalic" id="confirmPassword"
-          placeholder="Confirmar Senha" required>
-        <p v-if="differentPasswords">As senha precisam ser iguais!</p>
+
+      <div class="form-group">
+        <label class="fontBold">Confirmar Senha</label>
+        <input v-model="confirmPassword" type="password" required>
       </div>
-      <div v-if="invalidData" class="form-text text-danger fontBold">Dados inválidos!</div>
-      <button type="submit" class="btn btn-secondary fontItalic">Cadastrar</button>
+      <input type="submit" value="Criar">
       <p class="fontBold">Já possui uma conta? <router-link to="/login">Faça login aqui</router-link></p>
     </form>
+    <div>
+    </div>
   </div>
+
 </template>
 
 <script>
@@ -92,17 +92,54 @@ export default {
 
 <style scoped>
 .container {
+  height: 70vh;
+  margin-top: 10vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
+  justify-content: center;
+  padding: 20px;
+  max-width: 30vw;
+  background-image: linear-gradient(to right,  #180355, #130247, #180355);
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 10);
 }
 
-.form-text {
-  margin-top: 5px;
+.dark-mode {
+  color: #fff;
 }
 
-form {
-  background-color: #091428;
-  box-shadow: 4px 3px 5px 2px black;
-}</style>
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #333;
+  color: #fff;
+}
+
+input[type="submit"] {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+input[type="submit"]:hover {
+  background-color: #444444;
+}
+</style>

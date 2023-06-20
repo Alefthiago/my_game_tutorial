@@ -30,7 +30,7 @@
               <ul class="dropdown-menu dropdown-menu-dark">
                 <div v-if="$store.state.userLogin">
                   <!-- Link para a página de Alterar Dados -->
-                  <router-link class="dropdown-item fontItalic" to="/perfil">Alterar dados</router-link>
+                  <router-link class="dropdown-item fontItalic" to="/perfil">Dados</router-link>
                   
                   <li>
                     <hr class="dropdown-divider">
@@ -65,8 +65,8 @@ export default {
 </script>
 <style scoped>
 .bg {
-  background-image: linear-gradient(to right, #091428, #0A1428);
-  border-bottom: 1px solid #A09B8C;
+  background-image: linear-gradient(to left, #000000, #120626, #000000);
+    border-bottom: 1px solid #A09B8C;
 }
 
 .logo {
@@ -76,22 +76,11 @@ export default {
 .hover:hover {
   cursor: pointer;
 }
-@keyframes loop-animation {
-  0% {
-    text-shadow: 0 0 0;
-  }
-  20% {
-    text-shadow: 0 0 2px;
-  }
-  40% {
-    text-shadow: 0 0 5px;
-  }
-  60% {
-    text-shadow: 0 0 2px;
-  }
-  100% {
-    text-shadow: 0 0 0px;
-  }
+.navbar-brand:hover{
+  text-shadow: 0 0 5px white;
 }
+.dropdown-menu {
+ background-color: black;
 
+}
 </style>

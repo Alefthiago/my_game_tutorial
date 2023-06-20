@@ -10,7 +10,7 @@
     <FormAddPost v-if="$store.state.userLogin"/>
 
     <!-- Mensagem para convidar o usuário a fazer login -->
-    <div v-else>
+    <div class="alertLogin" v-else>
       <p>Para postar, faça o login <router-link to="/login">aqui</router-link></p>
     </div>
 
@@ -35,6 +35,9 @@ export default {
 </script>
 
 <style scoped>
+.alertLogin{
+  margin-top: 5vh;
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -45,7 +48,6 @@ export default {
   width: 80vw;
   min-height: 100px;
   display: flex;
-  padding: 50px;
   font-size: 5rem;
   text-shadow: 5px 5px 10px black;
   border-bottom: 1px solid #A09B8C;
