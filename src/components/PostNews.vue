@@ -49,6 +49,10 @@ export default {
 </script>
 
 <style scoped>
+.btn {
+  background-color: black;
+  border: 0px;
+}
 .container {
   margin-bottom: 20px;
   padding: 5px;
@@ -62,7 +66,7 @@ export default {
 .card {
   margin-top: 50px;
   box-shadow: 4px 5px 5px black;
-  background-image: linear-gradient(to top, #180355, #120626, #180355);
+  background-image: linear-gradient(to top, #110141, #120626, #11013b);
 }
 
 .card:hover {

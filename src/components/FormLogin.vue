@@ -67,7 +67,7 @@ export default {
   max-width: 30vw;
   height: 80vh;
   margin: 0 auto;
-  background-image: linear-gradient(-45deg,  #7e1dec7a, #480496d5, #1a0645e0, #1c0549b9);
+  background-image: linear-gradient(-45deg,  #5e6bd35e,#1e163f54, #1e163faf, #1e163fb7, #1e163fd5, #1e163fd5, #1c0549b9);
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 10);
 }

@@ -99,7 +99,7 @@ export default {
   justify-content: center;
   padding: 20px;
   max-width: 30vw;
-  background-image: linear-gradient(to right,  #180355, #130247, #180355);
+  background-image: linear-gradient(-45deg,  #5e6bd35e,#1e163f54, #1e163faf, #1e163fb7, #1e163fd5, #1e163fd5, #1c0549b9);
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 10);
 }
@@ -131,7 +131,7 @@ textarea {
 }
 
 input[type="submit"] {
-  background-color: #333;
+  background-color: black;
   color: white;
   border: none;
   padding: 10px 20px;

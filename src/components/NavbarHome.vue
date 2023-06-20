@@ -65,8 +65,8 @@ export default {
 </script>
 <style scoped>
 .bg {
-  background-image: linear-gradient(to left, #000000, #120626, #000000);
-    border-bottom: 1px solid #A09B8C;
+  background-color: #07001d;
+  border-bottom: 1px solid #A09B8C;
 }
 
 .logo {
