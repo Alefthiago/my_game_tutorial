@@ -17,7 +17,8 @@ export default {
    // FormAddNews,
   },
   created() {
-    this.$store.commit('checkLoginOrUser');
+       // this.$store.commit('checkLoginOrUser');
+
   },
 };
 </script>

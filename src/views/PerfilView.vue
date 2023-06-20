@@ -9,7 +9,8 @@
 import ToAlterDataUser from '@/components/ToAlterDataUser.vue';
 export default {
   created() {
-    this.$store.commit('checkLoginOrUser');
+      // this.$store.commit('checkLoginOrUser');
+
     this.$authUser();
   },
   components: {

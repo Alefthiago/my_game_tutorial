@@ -9,7 +9,7 @@
         <img :src="item.img" class="card-img-top">
       </div>
       <div class="card-body">
-        <h5 class="card-title text-light">{{ item.title }}</h5>
+        <h5 class="card-title text-light fontItalic">{{ item.title }}</h5>
         <a :href="item.link" class="btn btn-secondary fontItalic" target="_blank">Ler mais</a>
       </div>
     </div>
@@ -28,7 +28,7 @@ export default {
   },
   computed: {
     filteredNews() {
-      const searchQuery = this.searchQuery.toLowerCase();
+      const searchQuery = this.searchQuery.toLowerCase().trim();
       return this.news.filter(item => {
         const game = item.game.toLowerCase();
         return game.includes(searchQuery);

@@ -11,7 +11,8 @@ export default {
         FormRegistration
      },
      created () {
-        this.$store.commit('checkLoginOrUser');
+           // this.$store.commit('checkLoginOrUser');
+
      }
 }
 </script>

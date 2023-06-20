@@ -23,11 +23,6 @@ const routes = [
     component: () => import('../views/CommunityView.vue')
   },
   {
-    path: '/updateNews',
-    name: 'updateNews',
-    component: () => import('../views/UpdateNewsView.vue')
-  },
-  {
     path: '/registration',
     name: 'registration',
     component: () => import('../views/RegistrationView.vue')

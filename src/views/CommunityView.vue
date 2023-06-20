@@ -29,7 +29,8 @@ export default {
     PostCommunity
   },
   created () {
-    this.$store.commit('checkLoginOrUser');
+  this.$store.commit('checkLoginOrUser');
+   
   },  
 }
 </script>

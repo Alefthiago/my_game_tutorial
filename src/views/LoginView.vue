@@ -13,7 +13,8 @@ export default {
         FormLogin
     },
     created () {
-      this.$store.commit('checkLoginOrUser');
+        // this.$store.commit('checkLoginOrUser');
+
     }
 
 }

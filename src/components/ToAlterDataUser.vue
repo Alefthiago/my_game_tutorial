@@ -1,49 +1,49 @@
 <template>
-        <div class="containerData">
-            <div class="div">
-                <form class="form">
-                    <label for="">Email:</label>
-                    <div>
-                        <input type="text">
-                    </div>
-                    <button class="btn btn-secondary fontItalic">Criar</button>
-                </form>
-            </div>
-
-            <div class="div">
-                <form class="form">
-                    <label for="">Nome :</label>
-                    <div>
-                        <input type="text">
-                    </div>
-                    <button class="btn btn-secondary fontItalic">Criar</button>
-                </form>
-            </div>
-
-            <div class="div">
-                <form class="form">
-                    <label for="">Usuário :</label>
-                    <div>
-                        <input type="text">
-                    </div>
-                    <button class="btn btn-secondary fontItalic">Criar</button>
-                </form>
-            </div>
-
-            <div class="div">
-                <form class="form">
-                    <label for="">Senha :</label>
-                    <div>
-                        <input type="text">
-                    </div>
-                    <label for="">Confirmar senha:</label>
-                    <div>
-                        <input type="text">
-                    </div>
-                    <button class="btn btn-secondary fontItalic">Criar</button>
-                </form>
-            </div>
+    <div class="containerData">
+        <div class="div">
+            <form class="form">
+                <label for="">Email:</label>
+                <div>
+                    <input type="text">
+                </div>
+                <input type="submit" value="Enviar">
+            </form>
         </div>
+
+        <div class="div">
+            <form class="form">
+                <label for="">Nome :</label>
+                <div>
+                    <input type="text">
+                </div>
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+
+        <div class="div">
+            <form class="form">
+                <label for="">Usuário :</label>
+                <div>
+                    <input type="text">
+                </div>
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+
+        <div class="div">
+            <form class="form">
+                <label for="">Senha :</label>
+                <div>
+                    <input type="text">
+                </div>
+                <label for="">Confirmar senha:</label>
+                <div>
+                    <input type="text">
+                </div>
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -51,36 +51,55 @@
 
 
 export default {
-    created () {
-                
+    created() {
+
     }
 }
 </script>
 
 <style scoped>
-.containerData{
+.containerData {
     margin-top: 2vh;
+    margin-bottom: 5vh;
     min-width: 50vw;
-    min-height: 65vh;
+    min-height: 70vh;
     border-radius: 10px;
     border: 1px solid #A09B8C;
-    background-image: linear-gradient(to right, #091428, #0A1428);
+    background-color: #0f0f0fb9;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
 }
 
 .div {
- margin-top: 5%;
- background-color: red;
+    margin-top: 5%;
 }
 
-.form{
+.form {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 2vh;
 }
-.btn{
-    width: 10%;
+
+input[type="submit"] {
+    margin-top: 2vh;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #333;
+    color: #fff;
 }
 </style>

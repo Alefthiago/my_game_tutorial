@@ -3,7 +3,7 @@
   <nav class="navbar navbar-expand-lg bg">
     <div class="container-fluid">
       <div class="logo">
-        <router-link class="navbar-brand text-light fs-2 fontHeavy" to="/">My Game Tutorial</router-link>
+        <router-link class="navbar-brand text-light fs-2 fontBold" to="/">My Game Tutorial</router-link>
       </div>
 
       <div style="width: 30%;">
@@ -21,14 +21,14 @@
             </li>
 
             <!-- Dropdown para a conta do usuário -->
-            <li class="nav-item dropdown">
+            <li @click="checkLoginOrUser" class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-light fontItalic" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 Conta
               </a>
 
               <ul class="dropdown-menu dropdown-menu-dark">
-                <div v-if="$store.state.userLogin">
+                <div v-if="loginUser">
                   <!-- Link para a página de Alterar Dados -->
                   <router-link class="dropdown-item fontItalic" to="/perfil">Dados</router-link>
                   
@@ -41,7 +41,6 @@
                 <div v-else>
                   <!-- Link para a página de Login -->
                   <router-link class="dropdown-item fontItalic" to="/login">Entrar</router-link>
-  
                   <!-- Se o usuário estiver logado, exibir opções adicionais -->
                 </div>
               </ul>
@@ -53,15 +52,28 @@
   </nav>
 </template>
 <script>
-
 export default {
+  data() {
+    return {
+      loginUser: false,
+    }
+  },
   methods: {
     logout() {
       localStorage.removeItem('auth-token');
       this.$router.push('/');
     },
-  },
+    checkLoginOrUser() {
+      let token = localStorage.getItem('auth-token');
+      if (token) {
+        this.loginUser = true;
+      } else {
+        this.loginUser = false;
+      }
+    }
+  }
 };
+
 </script>
 <style scoped>
 .bg {

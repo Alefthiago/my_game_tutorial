@@ -1,6 +1,6 @@
 <template>
 <div v-if="dataI" class="alert alert-danger" role="alert">
-  Dados invalidos!
+  Dados inválidos!
 </div>
   <div class="container dark-mode">
     <form @submit.prevent="login">
@@ -43,7 +43,6 @@ export default {
         })
         .then((response) => {
           let json = response.data;
-          console.log(json);
           if (json.token) {
             // Se um token for retornado na resposta, armazena-o no localStorage
             localStorage.setItem("auth-token", json.token);
@@ -67,7 +66,7 @@ export default {
   max-width: 30vw;
   height: 80vh;
   margin: 0 auto;
-  background-image: linear-gradient(-45deg,  #5e6bd35e,#1e163f54, #1e163faf, #1e163fb7, #1e163fd5, #1e163fd5, #1c0549b9);
+  background-color: #0f0f0fd8;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 10);
 }
