@@ -122,7 +122,7 @@ export default {
   justify-content: center;
   padding: 20px;
   max-width: 30vw;
-  background-color: #0f0f0fd8;
+  background-image: linear-gradient(-45deg, #0f0f0fd8, #0f0f0f, #0f0f0f, #0f0f0f);
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 10);
 }
