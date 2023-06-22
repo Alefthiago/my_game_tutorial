@@ -18,7 +18,7 @@ export default {
   },
   created() {
        // this.$store.commit('checkLoginOrUser');
-
+    //  this.$authUser();
   },
 };
 </script>

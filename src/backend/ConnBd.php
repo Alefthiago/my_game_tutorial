@@ -7,7 +7,7 @@
         private $pdo;
       
         public function __construct() {
-          $this->dbName = "projetoepratisca";
+          $this->dbName = "projetoepratica";
           $this->port = 3306; // ou 3307 se necessário
           $this->user = "alef";
           $this->senha = "root";

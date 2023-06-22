@@ -79,14 +79,9 @@ export default {
         })
         .then((response) => {
           let json = response.data;
-          if (json.error === "users.email_UNIQUE") {
+          if (json.error) {
             this.error = true;
-            this.errorMessage = 'E-mail já cadastrado!';
-            return;
-          }
-          if (json.error === "users.username_UNIQUE") {
-            this.error = true;
-            this.errorMessage = 'Nome de usuário já cadastrado!';
+            this.errorMessage = json.error;
             return;
           }
           if (json.token) {

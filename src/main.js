@@ -8,32 +8,25 @@ import store from './store'
 const app = createApp(App).use(store);
 app.use(router);
 
-app.config.globalProperties.$login = true;
-
-app.config.globalProperties.$authUser = async () => {
+app.config.globalProperties.$authUser = () => {
   let token = localStorage.getItem('auth-token');
   if (!token) {
     router.push('/login');
   } else {
-    try {
-      await axios
-        .get('http://localhost:9090/token/restricted.php', {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        });
-    } catch (error) {
-      localStorage.removeItem('auth-token');
-      alert('Token invalido');
-      router.push('/login');
-    }
+    axios
+      .get('http://localhost:9090/auth/restricted.php', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      .then((reponse => {
+        console.log(reponse);
+      }))
+      .catch((error => {
+        console.log(error)
+      }));
   }
 };
-app.config.globalProperties.$logoutUser = () => {
-  localStorage.removeItem('auth-token');
-  router.push('/');
-};
-
 app.mount('#app');
 
 

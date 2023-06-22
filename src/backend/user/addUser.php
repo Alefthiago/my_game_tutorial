@@ -34,12 +34,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo json_encode($response);
     } catch (PDOException $e) {
         if (strpos($e->errorInfo[2], 'users.email_UNIQUE') !== false) {
-            $error['error'] = 'users.email_UNIQUE';
+            $error['error'] = 'E-mail já cadastrado!';
             echo json_encode($error);
         }
 
         if (strpos($e->errorInfo[2], 'users.username_UNIQUE') !== false) {
-            $error['error'] = 'users.username_UNIQUE';
+            $error['error'] = 'Nome de usuário já cadastrado!';
             echo json_encode($error);
         }
     } finally {

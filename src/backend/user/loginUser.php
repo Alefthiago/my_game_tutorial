@@ -22,18 +22,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $statement->bindParam(':emailOrUser', $emailOrUser);
         $statement->bindParam(':pass', $pass);
         $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        if ($statement->rowCount() == 0) {
+        if (empty($result)) {
             $error['error'] = 'Dados inválidos!';
             echo json_encode($error);
+        } else {
+            $response['token'] = generateToken([
+                'sub' => $result[0]['user_email'],
+                'user' => $result[0]['user_username']
+            ]);
+            echo json_encode($response);
         }
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-        $response['token'] = generateToken([
-            'sub' => $result[0]['user_email'],
-            'user' => $result[0]['user_username']
-        ]);
-
-        echo json_encode($response);
     } catch (PDOException $exception) {
         $error['error'] = $exception->getMessage();
         echo json_encode($error);

@@ -1,7 +1,8 @@
 <template>
-<div v-if="dataI" class="alert alert-danger" role="alert">
-  Dados inválidos!
-</div>
+  <div v-if="error" class="alert alert-danger" role="alert">
+    {{ errorMessage }}
+  </div>
+
   <div class="container dark-mode">
     <form @submit.prevent="login">
       <div class="form-group">
@@ -26,7 +27,8 @@ import axios from "axios";
 export default {
   data() {
     return {
-      dataI: false, // Variável para controlar se os dados são inválidos
+      error: false, // Variável para controlar se os dados são inválidos
+      errorMessage: '',
       emailOrUser: '', // Variável para armazenar o valor do email ou usuário inserido pelo usuário
       password: '', // Variável para armazenar o valor da senha inserida pelo usuário
     };
@@ -38,21 +40,23 @@ export default {
     login() {
       axios
         .post("http://localhost:9090/user/loginUser.php", {
-          emailOrUser: this.emailOrUser.toLowerCase(),
+          emailOrUser: this.emailOrUser.toLowerCase().trim(),
           password: this.password.trim(),
         })
         .then((response) => {
           let json = response.data;
+          if (json.error) {
+            this.error = true;
+            this.errorMessage = json.error;
+          }
           if (json.token) {
-            // Se um token for retornado na resposta, armazena-o no localStorage
-            localStorage.setItem("auth-token", json.token);
-            this.$router.push("/community"); // Navega para a rota '/community'
-          } else {
-            this.dataI = true; // Exibe um alerta se os dados forem inválidos
+            localStorage.setItem('auth-token', json.token);
+            this.$router.push('/community');
           }
         })
         .catch((error) => {
-          console.log(error); // Exibe o erro no console, se ocorrer algum problema na requisição
+          this.error = true;
+          this.errorMessage = error.response.data;
         });
     },
   },
