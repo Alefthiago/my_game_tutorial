@@ -5,9 +5,7 @@
         http_response_code(401);
         exit();
     }
-    require 'env.php';
 
-    // https://www.php.net/manual/pt_BR/function.base64-encode.php#103849
     function base64url_encode($data)
     {
       return rtrim(strtr(base64_encode($data), '+/', '-_'), '=');

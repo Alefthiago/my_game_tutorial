@@ -15,18 +15,22 @@ app.config.globalProperties.$authUser = () => {
   } else {
     axios
       .get('http://localhost:9090/auth/restricted.php', {
-        headers: {
-          Authorization: `Bearer ${token}`
+        token: token
+      })
+      .then((response) => {
+        console.log(response.data);
+        if (response.data.error){
+          localStorage.removeItem('auth-token');
+          router.push('/login');
         }
       })
-      .then((reponse => {
-        console.log(reponse);
-      }))
-      .catch((error => {
-        console.log(error)
-      }));
+      .catch((error) => {
+        alert(error);
+      });
   }
 };
+
+
 app.mount('#app');
 
 
