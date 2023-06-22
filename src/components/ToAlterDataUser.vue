@@ -1,48 +1,30 @@
 <template>
     <div class="containerData">
-        <div class="div">
-            <form class="form">
-                <label for="">Email:</label>
+        <form class="form">
+            <div class="div">
+                <label>Email</label>
                 <div>
-                    <input type="text">
+                    <input type="email" required>
                 </div>
-                <input type="submit" value="Enviar">
-            </form>
-        </div>
-
-        <div class="div">
-            <form class="form">
-                <label for="">Nome :</label>
+                <label>Nome</label>
                 <div>
-                    <input type="text">
+                    <input type="text" required>
                 </div>
-                <input type="submit" value="Enviar">
-            </form>
-        </div>
-
-        <div class="div">
-            <form class="form">
-                <label for="">Usuário :</label>
+                <label>Usuário</label>
                 <div>
-                    <input type="text">
+                    <input type="text" required>
                 </div>
-                <input type="submit" value="Enviar">
-            </form>
-        </div>
-
-        <div class="div">
-            <form class="form">
-                <label for="">Senha :</label>
+                <label>Senha</label>
                 <div>
-                    <input type="text">
+                    <input type="password" required>
                 </div>
-                <label for="">Confirmar senha:</label>
+                <label>Confirmar senha</label>
                 <div>
-                    <input type="text">
+                    <input type="password" required>
                 </div>
-                <input type="submit" value="Enviar">
-            </form>
-        </div>
+                <input type="submit" value="Alterar">
+            </div>
+        </form>
     </div>
 </template>
 
@@ -51,6 +33,11 @@
 
 
 export default {
+    data() {
+        return {
+
+        }
+    },
     created() {
 
     }
@@ -64,37 +51,45 @@ export default {
     min-width: 50vw;
     min-height: 70vh;
     border-radius: 10px;
-    border: 1px solid #A09B8C;
-    background-color: #0f0f0fb9;
     display: flex;
+    justify-content: flex-start;
     flex-direction: column;
 }
 
 .div {
     margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .form {
+    padding: 10px 10px;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 2vh;
 }
 
 input[type="submit"] {
-    margin-top: 2vh;
+    margin-top: 1vh;
     background-color: black;
     color: white;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 4px;
+    width: 40%;
 }
 
 input[type="text"],
+input[type="email"],
 input[type="password"],
 textarea {
-    width: 100%;
+    margin-top: 2vh;
+    margin-bottom: 1vh;
     padding: 10px;
     border: 1px solid #555;
     border-radius: 4px;

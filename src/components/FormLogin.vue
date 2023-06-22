@@ -37,9 +37,9 @@ export default {
      */
     login() {
       axios
-        .post("http://localhost:9090/token/auth.php", {
+        .post("http://localhost:9090/user/loginUser.php", {
           emailOrUser: this.emailOrUser.toLowerCase(),
-          password: this.password,
+          password: this.password.trim(),
         })
         .then((response) => {
           let json = response.data;
@@ -107,7 +107,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: #0f0f0f;
+  background-color: #252525;
 }
 
 .container {

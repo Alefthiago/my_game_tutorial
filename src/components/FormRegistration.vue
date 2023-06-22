@@ -1,21 +1,13 @@
 <template>
-  <div v-if="invalidEmail" class="alert alert-danger" role="alert">
-    E-mail inválido!
+  <div v-if="error" class="alert alert-danger" role="alert">
+    {{ errorMessage }}
   </div>
-  <div v-if="invalidUser" class="alert alert-danger" role="alert">
-    Nome de usuário inválido!
-  </div>
-  <div v-if="invalidUserName" class="alert alert-danger" role="alert">
-    Nome inválido!
-  </div>    
-  <div v-if="differentPasswords" class="alert alert-danger" role="alert">
-    As senhas devem ser iguais!
-  </div>  
+
   <div class="container dark-mode">
     <form @submit.prevent="register">
       <div class="form-group">
         <label class="fontBold">Email</label>
-        <input v-model="email" type="text" required>
+        <input v-model="email" type="email" required>
       </div>
 
       <div class="form-group">
@@ -43,11 +35,11 @@
     <div>
     </div>
   </div>
-
 </template>
 
 <script>
 import axios from 'axios';
+
 export default {
   data() {
     return {
@@ -56,57 +48,55 @@ export default {
       userName: '',
       password: '',
       confirmPassword: '',
-      invalidEmail: false,
-      invalidUserName: false,
-      invalidUser: false,
-      differentPasswords: false,
+      error: false,
+      errorMessage: ''
     };
   },
   methods: {
     register() {
-      // Valide os dados do formulário aqui antes de enviar para o servidor
-      if (!/^[a-zA-Z]+$/.test(this.name)) {
-          this.invalidEmail = false;
-          this.invalidUserName = true;
-          this.invalidUser = false;
-          this.differentPasswords = false;
-          return;
-      }
-      if (this.password !== this.confirmPassword) {
-        this.invalidEmail = false;
-        this.invalidUserName = false;
-        this.invalidUser = false;
-        this.differentPasswords = true;
+      if (this.email.trim() === '' || this.name.trim() === '' || this.userName.trim() === '' || this.password === '' || this.confirmPassword === '') {
+        this.error = true;
+        this.errorMessage = 'Dados inválidos!';
         return;
       }
-      // Envie os dados para o servidor ou execute a lógica de cadastro aqui
-      // Exemplo de chamada API fictícia usando axios:
-      axios.post('http://localhost:9090/user/addUser.php', {
-        email: this.email.toLowerCase(),
-        name: this.name.toLowerCase(),
-        userName: this.userName.toLowerCase(),
-        password: this.password
-      })
+
+      if (!/^[a-zA-Z]+$/.test(this.name)) {
+        this.error = true;
+        this.errorMessage = 'Nome deve conter penas letras!';
+        return;
+      }
+      if (this.password !== this.confirmPassword) {
+        this.error = true;
+        this.errorMessage = 'As senhas devem ser iguais!';
+        return;
+      }
+      axios
+        .post('http://localhost:9090/user/addUser.php', {
+          email: this.email.toLowerCase().trim(),
+          name: this.name.toLowerCase().trim(),
+          userName: this.userName.toLowerCase().trim(),
+          password: this.password.trim()
+        })
         .then((response) => {
-          // Lógica após o cadastro bem-sucedido
-          let json = response.data
-          if (json.invalidEmail) {
-            this.invalidEmail = true;
-            this.invalidUserName = false;
-            this.invalidUser = false;
-            this.differentPasswords = false;
-          } else if (json.invalidUser) {
-            this.invalidEmail = false;
-            this.invalidUserName = false;
-            this.invalidUser = true;
-            this.differentPasswords = false;
-          } else {
-            this.$router.push('/');
+          let json = response.data;
+          if (json.error === "users.email_UNIQUE") {
+            this.error = true;
+            this.errorMessage = 'E-mail já cadastrado!';
+            return;
+          }
+          if (json.error === "users.username_UNIQUE") {
+            this.error = true;
+            this.errorMessage = 'Nome de usuário já cadastrado!';
+            return;
+          }
+          if (json.token) {
+            localStorage.setItem("auth-token", json.token);
+            this.$router.push("/community");
           }
         })
         .catch(error => {
-          // Lógica em caso de erro no cadastro
-          alert(error);
+          this.error = true;
+          this.errorMessage = error.response.data;
         });
     }
   }
@@ -142,6 +132,7 @@ label {
 }
 
 input[type="text"],
+input[type="email"],
 input[type="password"],
 textarea {
   width: 100%;
@@ -163,6 +154,6 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: #444444;
+  background-color: #252525;
 }
 </style>

@@ -1,44 +1,49 @@
-<?php 
-    header("Access-Control-Allow-Origin: http://localhost:8080");
-    header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-    header("Access-Control-Allow-Headers: Content-Type");
-    require "../token/functions.php";
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $json = file_get_contents('php://input');
-        $data = json_decode($json, true);
-        
-        if (!isset($data)) {
-            unauthorized();
+<?php
+header('Access-Control-Allow-Origin: http://localhost:8080');
+header('Access-Control-Allow-Headers: Content-Type');
+
+require '../functions.php';
+require '../ConnBd.php';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $json = file_get_contents('php://input');
+    $data = json_decode($json, true);
+
+    if (!isset($data)) {
+        unauthorized();
+    }
+
+    $email = $data['email'];
+    $name = $data['name'];
+    $userName = $data['userName'];
+    $pass = sha1($data['password']); // depois mudar a criptografia para SHA-256
+
+    $sql = 'INSERT INTO users (user_name, user_email, user_username, user_password) VALUES (:name, :email, :userName, :pass)';
+    try {
+        $statement = $connBD->getConnection()->prepare($sql);
+        $statement->bindParam(':name', $name);
+        $statement->bindParam(':email', $email);
+        $statement->bindParam(':userName', $userName);
+        $statement->bindParam(':pass', $pass);
+        $statement->execute();
+        $response['token'] = generateToken([
+            'sub' => $email,
+            'user' => $userName
+        ]);
+        echo json_encode($response);
+    } catch (PDOException $e) {
+        if (strpos($e->errorInfo[2], 'users.email_UNIQUE') !== false) {
+            $error['error'] = 'users.email_UNIQUE';
+            echo json_encode($error);
         }
 
-        $file = "../csv/users.csv";
-        $fp = fopen($file, 'r');
-        
-        $response = array();
-        if ($fp) {
-            while(($row = fgetcsv($fp)) !== false) {
-                if ($row[0] == $data['email']) {
-                    $response = array(
-                        'invalidEmail' => true,
-                        'invalidUser' => false
-                    );
-                    echo json_encode($response);
-                    fclose($fp);
-                    exit();
-                } else if ($row[2] == $data['userName']) {
-                    $response = array(
-                        'invalidEmail' => false,
-                        'invalidUser' => true
-                    );
-                    echo json_encode($response);
-                    fclose($fp);
-                    exit();
-                }
-            };
-            fclose($fp);            
-            $fp = fopen($file, 'a');
-            fputcsv($fp, [$data['email'], $data['name'], $data['userName'], $data['password'], 'default']);
-            fclose($fp);
+        if (strpos($e->errorInfo[2], 'users.username_UNIQUE') !== false) {
+            $error['error'] = 'users.username_UNIQUE';
+            echo json_encode($error);
         }
+    } finally {
+        $statement = null;
+        $connBD->closeConnection();
     }
-?>
+}

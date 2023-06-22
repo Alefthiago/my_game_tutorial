@@ -1,6 +1,7 @@
 <template>
   <form class="d-flex" role="search">
-    <input class="form-control me-2 fontItalic" type="search" placeholder="Pesquisar" aria-label="Search" v-model="searchQuery">
+    <input class="form-control me-2 fontItalic" type="search" placeholder="Pesquisar" aria-label="Search"
+      v-model="searchQuery">
   </form>
 
   <div class="container">
@@ -53,6 +54,7 @@ export default {
   background-color: black;
   border: 0px;
 }
+
 .container {
   margin-bottom: 20px;
   padding: 5px;
@@ -92,7 +94,8 @@ form {
 .image-container {
   width: 100%;
   height: 0;
-  padding-bottom: 75%; /* Proporção de aspecto 4:3 (75% = 3/4) */
+  padding-bottom: 75%;
+  /* Proporção de aspecto 4:3 (75% = 3/4) */
   position: relative;
 }
 
@@ -103,5 +106,4 @@ form {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-</style>
+}</style>
