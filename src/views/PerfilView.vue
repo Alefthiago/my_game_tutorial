@@ -1,20 +1,52 @@
 <template>
   <div class="container">
     <h1 class="titlePage">Editar conta</h1>
-    <ToAlterDataUser />
+    <div class="containerUserData">
+      <ToAlterDataUser />
+    </div>
   </div>
 </template>
 
 <script>
 import ToAlterDataUser from '@/components/ToAlterDataUser.vue';
-export default {
-  created() {
-      // this.$store.commit('checkLoginOrUser');
+import axios from "axios";
 
-    this.$authUser();
+export default {
+  data() {
+    return {
+      token: localStorage.getItem('auth-token')
+    }
   },
   components: {
-    ToAlterDataUser
+    ToAlterDataUser,
+  },
+  mounted() {
+    this.authUser();
+  },
+  methods: {
+    authUser() {
+      if (this.token) {
+        axios
+          .get('http://localhost:9090/auth/restricted.php', {
+            headers: {
+              Authentication: 'Bearer ' + this.token
+            }
+          })
+          .then((response) => {
+            let json = response.data;
+
+            if (json.error) {
+              this.$router.push('/login');
+            }
+          })
+          .catch((error) => {
+            localStorage.removeItem('auth-token');
+            this.$router.push('/login');
+          })
+      } else {
+        this.$router.push('/login');
+      }
+    }
   }
 };
 </script>
@@ -23,11 +55,17 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  width: 80vw;
-  height: auto;
+  align-items: center;
 }
+
+.containerUserData {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
 .titlePage {
   width: 80vw;
   min-height: 100px;
@@ -36,5 +74,11 @@ export default {
   font-size: 3rem;
   text-shadow: 5px 5px 10px black;
   border-bottom: 1px solid #A09B8C;
+}
+
+.div-ModalT {
+  background-color: black;
+  width: 100%;
+  height: 100%;
 }
 </style>

@@ -89,7 +89,7 @@ export default {
             this.$router.push("/community");
           }
         })
-        .catch(error => {
+        .catch((error) => {
           this.error = true;
           this.errorMessage = error.response.data;
         });

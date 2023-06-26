@@ -27,10 +27,12 @@
 
 ::-webkit-scrollbar-track {
     background-color: #1E282D;
+    
 }
 
 body {
     background-image: url("~@/assets/e79e1514-0326-4629-9ea9-961423cbe403.jpg");
+    background-repeat: no-repeat;
 }
 
 * {

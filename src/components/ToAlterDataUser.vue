@@ -4,42 +4,99 @@
             <div class="div">
                 <label>Email</label>
                 <div>
-                    <input type="email" required>
+                    <input v-model="email" type="email" required>
                 </div>
                 <label>Nome</label>
                 <div>
-                    <input type="text" required>
+                    <input v-model="name" type="text" required>
                 </div>
                 <label>Usuário</label>
                 <div>
-                    <input type="text" required>
+                    <input v-model="userName" type="text" required>
                 </div>
-                <label>Senha</label>
+                <!-- <label>Senha</label>
                 <div>
                     <input type="password" required>
                 </div>
                 <label>Confirmar senha</label>
                 <div>
                     <input type="password" required>
-                </div>
-                <input type="submit" value="Alterar">
+                </div> -->
+                <button type="button" class="btn" data-toggle="modal" data-target="#Modal">
+                    Alterar
+                </button>
             </div>
         </form>
+
+        <div>
+            <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="TituloModalCentralizado">Tem certeza em alterar seus dados?</h5>
+                        </div>
+                        <div class="modal-body">
+                            <label>Digite sua senha</label>
+                            <div>
+                                <input v-model="pass" type="password" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn " data-dismiss="modal">Cancelar</button>
+                            <button @click="alterData" type="button" class="btn">Salvar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
-// import axios from 'axios';
-
+import axios from 'axios';
 
 export default {
     data() {
         return {
-
+            email: '',
+            userName: '',
+            name: '',
+            pass: '',
+            token: localStorage.getItem('auth-token')
         }
     },
-    created() {
-        this.$authUser();
+    mounted() {
+        this.recoverData();
+    },
+    methods: {
+        alterData() {
+            axios
+                .post('http://localhost:9090/user/updateUser.php', {
+                    token: localStorage.getItem('auth-token'),
+                    email: this.email,
+                    name: this.name,
+                    userName: this.userName,
+                    passs: this.pass
+                })
+        },
+        recoverData() {
+            axios
+                .get('http://localhost:9090/user/recoverDataUser.php', {
+                    params: {
+                        token: this.token
+                    }
+                })
+                .then((response) => {
+                    let json = response.data;
+                    this.email = json.user_email;
+                    this.userName = json.user_username;
+                    this.name = json.user_name;                    
+                })
+                .catch((error) => {
+                    alert(error);
+                })
+        }
     }
 }
 </script>
@@ -73,7 +130,11 @@ export default {
     margin-bottom: 2vh;
 }
 
-input[type="submit"] {
+.modal-content {
+    background-color: black;
+}
+
+.btn {
     margin-top: 1vh;
     background-color: black;
     color: white;
@@ -81,7 +142,10 @@ input[type="submit"] {
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 4px;
-    width: 40%;
+}
+
+.close {
+    background-color: black;
 }
 
 input[type="text"],

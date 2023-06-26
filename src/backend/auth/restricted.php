@@ -1,15 +1,21 @@
 <?php
 header('Access-Control-Allow-Origin: http://localhost:8080');
-header('Access-Control-Allow-Headers: Content-Type, Authorization');
+header('Access-Control-Allow-Headers: Authentication');
 require '../functions.php';
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+require '../ConnBd.php';
 
-    $json = file_get_contents('php://input');
-    $data = json_decode($json, true);
-    if(!validateToken($data['token'])) {
-        $error['error'] = 401;
-        echo json_encode($error);
-    } else {
-        echo "passou";
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    if (!isset($_SERVER['HTTP_AUTHENTICATION'])) {
+        unauthorized();
+    }
+    $tokenParts = explode(' ', $_SERVER['HTTP_AUTHENTICATION']);
+    if (sizeof($tokenParts) != 2) {
+        unauthorized();
+    }
+    
+    $token = $tokenParts[1];
+    if (!validateToken($token)) {
+        unauthorized();
     }
 }
+

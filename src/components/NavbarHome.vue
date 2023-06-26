@@ -10,17 +10,14 @@
         <div class="collapse navbar-collapse" id="navbarScroll">
           <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
 
-            <!-- Link para a página de Notícias -->
             <li class="nav-item">
               <router-link class="nav-link text-light fontItalic" to="/">Notícias</router-link>
             </li>
 
-            <!-- Link para a página de Comunidade -->
             <li class="nav-item">
               <router-link class="nav-link text-light fontItalic" to="/community">Comunidade</router-link>
             </li>
 
-            <!-- Dropdown para a conta do usuário -->
             <li @click="checkLoginOrUser" class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-light fontItalic" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
@@ -29,19 +26,15 @@
 
               <ul class="dropdown-menu dropdown-menu-dark">
                 <div v-if="loginUser">
-                  <!-- Link para a página de Alterar Dados -->
                   <router-link class="dropdown-item fontItalic" to="/perfil">Dados</router-link>
                   
                   <li>
                     <hr class="dropdown-divider">
                   </li>
-                  <!-- Opção para fazer logout -->
                   <a class="hover dropdown-item fontItalic" @click="logout">Sair</a>
                 </div>
                 <div v-else>
-                  <!-- Link para a página de Login -->
                   <router-link class="dropdown-item fontItalic" to="/login">Entrar</router-link>
-                  <!-- Se o usuário estiver logado, exibir opções adicionais -->
                 </div>
               </ul>
             </li>
