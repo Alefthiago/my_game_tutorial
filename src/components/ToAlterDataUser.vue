@@ -14,14 +14,6 @@
                 <div>
                     <input v-model="userName" type="text" required>
                 </div>
-                <!-- <label>Senha</label>
-                <div>
-                    <input type="password" required>
-                </div>
-                <label>Confirmar senha</label>
-                <div>
-                    <input type="password" required>
-                </div> -->
                 <button type="button" class="btn" data-toggle="modal" data-target="#Modal">
                     Alterar
                 </button>
@@ -37,14 +29,24 @@
                             <h5 class="modal-title" id="TituloModalCentralizado">Tem certeza em alterar seus dados?</h5>
                         </div>
                         <div class="modal-body">
-                            <label>Digite sua senha</label>
-                            <div>
-                                <input v-model="pass" type="password" required>
+                            <div v-if="!showSuccessMessage">
+                                <label>Digite sua senha</label>
+                                <div>
+                                    <input v-model="pass" type="password" required>
+                                </div>
+                                <p v-if="showErrorMessage" class="error-message">Ocorreu um erro ao alterar os dados. Tente
+                                    novamente.</p>
                             </div>
+
+                            <!-- Aviso de mudança de dados -->
+                            <p v-if="showSuccessMessage" class="success-message">Dados alterados com sucesso!</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn " data-dismiss="modal">Cancelar</button>
-                            <button @click="alterData" type="button" class="btn">Salvar</button>
+                            <button v-if="!showSuccessMessage" @click="closeModalsA" type="button" class="btn"
+                                data-dismiss="modal">Cancelar</button>
+                            <button v-if="showSuccessMessage" @click="closeModalsB" type="button" class="btn"
+                                data-dismiss="modal">Fechar</button>
+                            <button v-else @click="alterData" type="button" class="btn">Salvar</button>
                         </div>
                     </div>
                 </div>
@@ -63,7 +65,9 @@ export default {
             userName: '',
             name: '',
             pass: '',
-            token: localStorage.getItem('auth-token')
+            token: localStorage.getItem('auth-token'),
+            showSuccessMessage: false,
+            showErrorMessage: false,
         }
     },
     mounted() {
@@ -77,8 +81,21 @@ export default {
                     email: this.email,
                     name: this.name,
                     userName: this.userName,
-                    passs: this.pass
+                    pass: this.pass
                 })
+                .then((response) => {
+                    console.log(response);
+                    this.showSuccessMessage = true;
+                    this.showErrorMessage = false;
+                })
+                .catch((error) => {
+                    console.log(error);
+                    this.showSuccessMessage = false;
+                    this.showErrorMessage = true;
+                })
+                .finally(() => {
+                    this.pass = '';
+                });
         },
         recoverData() {
             axios
@@ -91,11 +108,19 @@ export default {
                     let json = response.data;
                     this.email = json.user_email;
                     this.userName = json.user_username;
-                    this.name = json.user_name;                    
+                    this.name = json.user_name;
                 })
                 .catch((error) => {
                     alert(error);
                 })
+        },
+        closeModalsB() {
+            location.reload();
+        },
+        closeModalsA() {
+            this.pass = '';
+            this.showSuccessMessage = false;
+            this.showErrorMessage = false;
         }
     }
 }
@@ -161,4 +186,13 @@ textarea {
     background-color: #333;
     color: #fff;
 }
-</style>
+
+.success-message {
+    color: green;
+    margin-top: 10px;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}</style>

@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $emailOrUser = $data['emailOrUser'];
     $pass = sha1($data['password']);
 
-    $sql = 'SELECT user_email, user_username FROM users WHERE (user_email = :emailOrUser OR user_username = :emailOrUser) AND user_password = :pass';
+    $sql = 'SELECT user_email, user_id FROM users WHERE (user_email = :emailOrUser OR user_username = :emailOrUser) AND user_password = :pass';
 
     try {
         $statement = $connBD->getConnection()->prepare($sql);
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             $response['token'] = generateToken([
                 'sub' => $result['user_email'],
-                'user' => $result['user_username']
+                'id' => $result['user_id']
             ]);
             echo json_encode($response);
         }

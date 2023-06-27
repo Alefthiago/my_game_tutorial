@@ -42,6 +42,7 @@ export default {
           .catch((error) => {
             localStorage.removeItem('auth-token');
             this.$router.push('/login');
+            console.log(error);
           })
       } else {
         this.$router.push('/login');
