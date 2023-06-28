@@ -1,35 +1,48 @@
 <?php
+header('Access-Control-Allow-Origin: http://localhost:8080');
+header('Access-Control-Allow-Headers: Content-Type');
 
+require '../function.php';
 require '../ConnBd.php';
 
-$dbName = "projetoepratica";
-$port = 3306; //mudar para 3307 caso esteja no IF
-$user = "root";
-$pass = "root";
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-//$pdo = new PDO("mysql:dbname=$dbName;host=127.0.0.1;port=$port",$user,$pass );
+    $json = file_get_contents('php://input');
+    $data = json_decode($json, true);
 
-$postId = 1;
+    if(!isset($data)) {
+        unauthorized();
+    }
+    if(!validateToken($data['token'])) {
+        unauthorized();
+    }
 
-$sql = "DELETE FROM posts WHERE post_id = :postId";
+    $postId = $data['postId'];
 
-try {
-    $stmt = $connBd->getConnection()->prepare($sql);
-//  $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(":postId",$postId);
-    $stmt ->execute();
+    $sql = "DELETE FROM posts WHERE post_id = :postId";
 
-    echo "Post excluído";
+    try {
 
-} catch (PDOException $e) {
+        $stmt = $connBd->getConnection()->prepare($sql);
+        $stmt->bindParam(":postId",$postId);
+        $stmt ->execute();
 
-    //tratar erro
-    echo "Erro" . $e->getMessage();
+        echo "Post excluído";
 
-} finally {
-    $stmt = null;
-    $connBD->closed;
-//  $pdo = null;
+    } catch (PDOException $e) {
+
+        echo "Erro" . $e->getMessage();
+
+    } finally {
+
+        $stmt = null;
+        $connBD->closeConnection();
+
+    }
+
 }
+
+
+
 
 ?> 

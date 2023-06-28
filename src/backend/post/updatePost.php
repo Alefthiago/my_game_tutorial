@@ -1,43 +1,57 @@
 <?php
+header('Access-Control-Allow-Origin: http://localhost:8080');
+header('Access-Control-Allow-Headers: Content-Type');
 
+require '../functions.php';
 require '../ConnBd.php';
 
-$dbName = "projetoepratica";
-$port = 3306; //mudar para 3307 caso esteja no IF
-$user = "root";
-$pass = "root";
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-//$pdo = new PDO("mysql:dbname=$dbName;host=127.0.0.1;port=$port",$user,$pass );
+    $json = file_get_contents('php://input');
+    $data = json_decode($json, true);
 
-$postId = 2;
-$newTitle = "novo título";
-$newContent = "novo asdasidow";
-$newLink = "novo aosdosaid";
+    if(!isset($data)) {
+        unauthorized();
+    }
+
+    if(!validateToken($data['token'])) {
+        unauthorized();
+    }
+    $tokenData = getTokenData($data['token']);
+    $postId = $tokenData['postId'];
+    $newTitle = $data['newTitle'];
+    $newContent = $data['newContent'];
+    $newLink = $data['newLink'];
+
+    $sql = "UPDATE posts SET post_title = :newTitle, post_content = :newContent, post_link = :newLink WHERE post_id = :postId";
 
 
-$sql = "UPDATE posts SET post_title = :title, post_content = :content, post_link = :link WHERE post_id = :postId";
+    try {
+        $stmt = $connBd->getConnection()->prepare($sql);
+        $stmt->bindParam(":newTitle",$newTitle);
+        $stmt->bindParam(":newContent",$newContent);
+        $stmt->bindParam(":newLink",$newLink);
+        $stmt->bindParam(":postId",$postId);
+        $stmt ->execute();
+        
+        $rowCount = $stmt->rowCount();
 
+        if ($rowCount == 0) {
+            http_response_code(404);
+        }
+        
 
-try {
-    $stmt = $connBd->getConnection()->prepare($sql);
-//    $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(":title",$newTitle);
-    $stmt->bindParam(":content",$newContent);
-    $stmt->bindParam(":link",$newLink);
-    $stmt->bindParam(":postId",$postId);
-    $stmt ->execute();
+    } catch (PDOException $e) {
 
-    echo "Dados atualizados";
+        echo json_encode(['error' => $e->getMessage()]);
+        // echo "Erro" . $e->getMessage();
 
-} catch (PDOException $e) {
-
-    //tratar erro
-    echo "Erro" . $e->getMessage();
-
-} finally {
-    $stmt = null;
-    $connBD->closed;
-//    $pdo = null;
+    } finally {
+        $stmt = null;
+        $connBD->closeConnection();
+    }
+    
 }
+
 
 ?> 

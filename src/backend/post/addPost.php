@@ -18,11 +18,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!validateToken($data['token'])) {
         unauthorized();
     }
+
+    $title = $data['title'];
+    $content = $data['content'];
+    $link = $data['link'];
+    $userId = $data['userId'];
     
     $sql = "INSERT INTO posts (post_title, post_content, post_link, users_user_id) VALUES (:title, :content, :link, :userId)";
 
     try {
-        $stmt = $pdo->prepare($sql);
+        $stmt = $connBD->getConnection()->prepare($sql);
         $stmt->bindParam(":title", $title);
         $stmt->bindParam(":content", $content);
         $stmt->bindParam(":link", $link);
