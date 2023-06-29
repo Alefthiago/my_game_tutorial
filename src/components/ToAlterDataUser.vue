@@ -139,20 +139,22 @@ export default {
 }
 
 .div {
-    margin-top: 5%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-top: 20px;
 }
 
 .form {
+    background-image: linear-gradient(-45deg, #0f0f0fd8, #0f0f0f, #0f0f0f, #0f0f0f); /* Cor de fundo do fortmulário */
     padding: 10px 10px;
-    width: 100%;
-    height: 100%;
+    width: 15vw;
+    height: 43vh;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 2vh;
+    border-radius: 40px;
 }
 
 .modal-content {
@@ -177,9 +179,9 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 textarea {
-    margin-top: 2vh;
-    margin-bottom: 1vh;
-    padding: 10px;
+    margin-top: 1.4vh;
+    margin-bottom: 2vh;
+    padding: 1vh;
     border: 1px solid #555;
     border-radius: 4px;
     box-sizing: border-box;

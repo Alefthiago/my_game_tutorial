@@ -46,7 +46,7 @@ form {
   display: flex; /* Aplica um layout flexível como vertical */
   flex-direction: column; /* Define a direção do layout flexível como vertical */
   width: 30vw; /* Define a largura do formulário */
-  height: 470px; /* Define a altura do formulário */
+  height: 50vh; /* Define a altura do formulário */
   padding: 25px; /* Define um preenchimento interno ao redor do conteúdo do formulário */
   font-size: 1.3rem; /* Define o tamando da fonte de texto */  
   margin-bottom: 2vh;
@@ -71,10 +71,10 @@ form {
   outline: 0; 
   background-color:  rgba(51, 51, 51, 0.5);
   color: white;
-  width: 530px;
+  width: 25vw;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 30px;
+  border-radius: 1vw;
   display: block;
 }   
 
@@ -90,8 +90,8 @@ textarea::placeholder{
 button[type="submit"]{
   font-size: 1.2rem;
   width: 6vw;
-  border-radius: 55px;
-  margin-top: 5px; 
+  border-radius: 2vw;
+  margin-top: 1vw; 
  }
 
 
