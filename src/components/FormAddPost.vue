@@ -1,7 +1,7 @@
 <template>
      <div class="containerFormPost">
       <div class="addPost">
-        <form @submit.prevent="addPost" class="border p-4  border rounded">
+        <form @submit.prevent="addPost" >
           <div class="mb-3">
             <label class="form-label fontBold">Titulo:</label>
             <input v-model="postTitle" type="text" class="form-control fontItalic" id="exampleFormControlInput1" placeholder="digite aqui...">
@@ -40,17 +40,21 @@ export default {
 </script>
 
 <style scoped>
+
 form {
-  background-color: white; /* Cor de fundo do fortmulário */
+  background-image: linear-gradient(-45deg, #0f0f0fd8, #0f0f0f, #0f0f0f, #0f0f0f); /* Cor de fundo do fortmulário */
   display: flex; /* Aplica um layout flexível como vertical */
   flex-direction: column; /* Define a direção do layout flexível como vertical */
-  width: 35vw; /* Define a largura do formulário */
-  height: 500px; /* Define a altura do formulário */
+  width: 30vw; /* Define a largura do formulário */
+  height: 470px; /* Define a altura do formulário */
   padding: 25px; /* Define um preenchimento interno ao redor do conteúdo do formulário */
   font-size: 1.3rem; /* Define o tamando da fonte de texto */  
   margin-bottom: 2vh;
   margin-top: 2vh;
+  border-radius: 50px;
 }
+
+
 .containerFormPost {
   display: flex; /* Essa propriedade define o elemento como um container flexível */
   flex-direction: column; /*  Essa propriedade define a direção principal do layout flexível como uma coluna */
@@ -60,23 +64,36 @@ form {
   height: auto; /* Essa propriedade define a altura do elemento como automática */
   border-bottom: 1px solid #A09B8C; /* Essa propriedade define uma borda inferior */
   
+  
 }
 .fontItalic{
   border: 0;
-  border-bottom: 2px solid rgb(200, 200, 200);
-  outline: 0;
+  outline: 0; 
+  background-color:  rgba(51, 51, 51, 0.5);
+  color: white;
+  width: 530px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 30px;
+  display: block;
 }   
 
-label{
-  color: black;
+input::placeholder {
+  color: white;
+
 }
-button {
-  font-size: 2rem;
-  width: 12vw;
+
+textarea::placeholder{
+  color: white;
+}
+
+button[type="submit"]{
+  font-size: 1.2rem;
+  width: 6vw;
   border-radius: 55px;
-  margin-top: 25px; 
-  background-color: #00BFFF;
+  margin-top: 5px; 
  }
+
 
  
 
