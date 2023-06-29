@@ -1,44 +1,64 @@
 <template>
-     <div class="containerFormPost">
-      <div class="addPost">
-        <form @submit.prevent="addPost" >
-          <div class="mb-3">
-            <label class="form-label fontBold">Titulo:</label>
-            <input v-model="postTitle" type="text" class="form-control fontItalic" id="exampleFormControlInput1" placeholder="digite aqui...">
-          </div>
-          <div class="mb-3">
-            <label for="FormControlTextarea1" class="form-label fontBold">Conteudo:</label>
-            <textarea v-model="postContent"  class="form-control fontItalic" rows="5" placeholder="digite aqui..."></textarea>
-          </div>
-          <div class="mb-3">
-            <label class="form-label fontBold">Link do video ou imagem:</label>
-            <input v-model="postLink" type="text" class="form-control fontItalic" placeholder="digite aqui...">
-          </div>
-          <div class="mb-3">
-            <button type="submit" class="btn btn-secondary fontItalic">Postar</button>
-          </div>
-        </form>
-      </div>
+  <div class="containerFormPost">
+    <div class="addPost">
+      <form @submit.prevent="addPost">
+        <div class="mb-3">
+          <label class="form-label fontBold">Título:</label>
+          <input v-model="postTitle" type="text" class="form-control fontItalic" placeholder="Digite aqui...">
+        </div>
+        <div class="mb-3">
+          <label for="FormControlTextarea1" class="form-label fontBold">Conteúdo:</label>
+          <textarea v-model="postContent" class="form-control fontItalic" rows="5" placeholder="Digite aqui..."></textarea>
+        </div>
+        <div class="mb-3">
+          <label class="form-label fontBold">Upload de imagem ou vídeo:</label>
+          <input type="file" ref="fileInput" @change="handleFileUpload" accept="image/*, video/*">
+        </div>
+        <div class="mb-3">
+          <button type="submit" class="btn btn-secondary fontItalic">Postar</button>
+        </div>
+      </form>
     </div>
+  </div>
+  <img v-if="selectedFileUrl" :src="selectedFileUrl" alt="Imagem ou vídeo selecionado">
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-    data () {
-        return {
-            postTitle: '',
-            postContent: '',
-            postLink: '',
-        }
-    },
-    methods:{
-        addPost () {
-            console.log("alo");
-        }        
+  data() {
+    return {
+      postTitle: '',
+      postContent: '',
+      selectedFile: null,
+      selectedFileUrl: ''
     }
+  },
+  methods: {
+    addPost() {
+      // Crie um objeto FormData para enviar os dados do formulário, incluindo o arquivo
+      const formData = new FormData();
+      formData.append('token', localStorage.getItem('auth-token'));
+      formData.append('title', this.postTitle);
+      formData.append('content', this.postContent);
+      formData.append('file', this.selectedFile);
+      // Use axios para fazer a solicitação POST para o arquivo PHP no servidor
+      axios.post('http://localhost:9090/post/addPost.php', formData)
+        .then((response) => {
+          console.log(response);
+          // Faça o que quiser com a resposta do servidor
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    handleFileUpload(event) {
+      this.selectedFile = event.target.files[0];
+    }
+  }
 }
 </script>
-
 <style scoped>
 
 form {

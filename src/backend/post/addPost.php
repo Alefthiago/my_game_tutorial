@@ -5,42 +5,43 @@ header('Access-Control-Allow-Headers: Content-Type');
 require '../functions.php';
 require '../ConnBd.php';
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+    // if (empty(array_filter($_POST))) {
+    //     unauthorized();
+    // }
+    // if (empty(array_filter($_FILES))) {
+    //     unauthorized();
+    // }
+    // if (!validateToken($_POST['token'])) {
+    //     unauthorized();
+    // }
 
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-    $json = file_get_contents('php://input');
-    $data = json_decode($json, true);
-
-    if (!isset($data)) {
-        unauthorized();
-    }
-    if (!validateToken($data['token'])) {
-        unauthorized();
-    }
-
-    $title = $data['title'];
-    $content = $data['content'];
-    $link = $data['link'];
-    $userId = $data['userId'];
+    $title = $_POST['title'];
+    $content = $_POST['content'];
+    $file = $_FILES['file'];
+    $token = getTokenData($_POST['token']);
+    $email = $token['sub'];
+    $folder = 'dataPost/';
+    $tempFileName = $file['name'];
+    $fileName = uniqid();
+    $extension = strtolower(pathinfo($tempFileName, PATHINFO_EXTENSION));
     
-    $sql = "INSERT INTO posts (post_title, post_content, post_link, users_user_id) VALUES (:title, :content, :link, :userId)";
-
-    try {
-        $stmt = $connBD->getConnection()->prepare($sql);
-        $stmt->bindParam(":title", $title);
-        $stmt->bindParam(":content", $content);
-        $stmt->bindParam(":link", $link);
-        $stmt->bindParam(":userId", $userId);
-        $stmt->execute();
-    } catch (PDOException $e) {
-        var_dump($e->getMessage());
+    $save = move_uploaded_file($file['tmp_name'], $folder . $fileName . "." . $extension);
     
-    } finally {
-        $stmt = null;
-        $connBD->closeConnection();
-    }
+    // $sql = "INSERT INTO posts (post_title, post_content, post_link, users_user_id) VALUES (:title, :content, :link, :userId)";
 
+    // try {
+    //     $stmt = $connBD->getConnection()->prepare($sql);
+    //     $stmt->bindParam(":title", $title);
+    //     $stmt->bindParam(":content", $content);
+    //     $stmt->bindParam(":link", $link);
+    //     $stmt->bindParam(":userId", $userId);
+    //     $stmt->execute();
+    // } catch (PDOException $e) {
+    //     var_dump($e->getMessage());
+    // } finally {
+    //     $stmt = null;
+    //     $connBD->closeConnection();
+    // }
 }
-
-?>
