@@ -4,45 +4,19 @@ header('Access-Control-Allow-Headers: Content-Type');
 require '../functions.php';
 require '../ConnBd.php';
 
-
-
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    
-    $token = $_GET['token'];
-
-    if(!validateToken($token)) {
-        unauthorized();
-    }
-
-    $data = getTokenData($token);
-    
     $sql = "SELECT * FROM posts ORDER BY post_date DESC";
 
     try {
-        $stmt = $connBd->getConnection()->prepare($sql);
-        $stmt ->execute();
-        
-        $result = $stmt->fetchall(PDO::FETCH_ASSOC);
-
-        // foreach ($result as $row) {
-        //     echo "título:" . $row['post_title'] . "<br>";
-        //     echo "conteúdo:" . $row['post_content'] . "<br>";
-        //     echo "link:" . $row['post_link'] . "<br>";
-        //     echo "data:" . $row['post_date'] . "<br>";
-        //     echo "<br>";
-    
-        // }
-    
+        $statement = $connBD->getConnection()->prepare($sql);
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($result);
     } catch (PDOException $e) {
-
-        echo "Erro" . $e->getMessage();
-    
+        echo "Erro: " . $e->getMessage();
     } finally {
-
-       $stmt = null;
-       $connBD->closeConnection();
-
+        $stmt = null;
+        $connBD->closeConnection();
     }
 }
-
 ?>

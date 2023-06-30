@@ -1,14 +1,20 @@
 <template>
+  <div v-if="error" class="alert alert-danger" role="alert">
+    {{ errorMessage }}
+  </div>
   <div class="containerFormPost">
     <div class="addPost">
       <form @submit.prevent="addPost">
         <div class="mb-3">
-          <label class="form-label fontBold">Título:</label>
-          <input v-model="postTitle" type="text" class="form-control fontItalic" placeholder="Digite aqui...">
+          <label class="form-label fontBold">Tópico</label>
+          <select v-model="postTopic" class="form-control fontItalic" required>
+            <option value="">Selecione uma opção</option>
+            <option v-for="option in titleOptions" :value="option" :key="option">{{ option }}</option>
+          </select>
         </div>
         <div class="mb-3">
           <label for="FormControlTextarea1" class="form-label fontBold">Conteúdo:</label>
-          <textarea v-model="postContent" class="form-control fontItalic" rows="5" placeholder="Digite aqui..."></textarea>
+          <textarea v-model="postContent" class="form-control fontItalic" rows="5" placeholder="Digite aqui..." required></textarea>
         </div>
         <div class="mb-3">
           <label class="form-label fontBold">Upload de imagem ou vídeo:</label>
@@ -25,29 +31,39 @@
 
 <script>
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 export default {
   data() {
     return {
-      postTitle: '',
+      postTopic: '',
       postContent: '',
       selectedFile: null,
-      selectedFileUrl: ''
+      titleOptions: ['League of Legends', 'valorant', 'Counter Strike Global Offensive', 'teamfight tactics']
     }
   },
   methods: {
     addPost() {
-      // Crie um objeto FormData para enviar os dados do formulário, incluindo o arquivo
       const formData = new FormData();
       formData.append('token', localStorage.getItem('auth-token'));
-      formData.append('title', this.postTitle);
+      formData.append('tag', this.postTopic);
       formData.append('content', this.postContent);
       formData.append('file', this.selectedFile);
-      // Use axios para fazer a solicitação POST para o arquivo PHP no servidor
       axios.post('http://localhost:9090/post/addPost.php', formData)
         .then((response) => {
-          console.log(response);
-          // Faça o que quiser com a resposta do servidor
+          if (response.data == "Conteúdo proibido encontrado!") {
+            Swal.fire({
+              icon: 'error',
+              title: response.data
+            })
+          } else {
+            // Limpar o formulário após o envio bem-sucedido
+            this.postTopic = '';
+            this.postContent = '';
+            this.selectedFile = null;
+            this.$refs.fileInput.value = null; // Limpar o campo de upload de arquivo
+            location.reload();
+          }
         })
         .catch((error) => {
           console.log(error);
@@ -59,62 +75,56 @@ export default {
   }
 }
 </script>
-<style scoped>
 
+<style scoped>
 form {
-  background-image: linear-gradient(-45deg, #0f0f0fd8, #0f0f0f, #0f0f0f, #0f0f0f); /* Cor de fundo do fortmulário */
-  display: flex; /* Aplica um layout flexível como vertical */
-  flex-direction: column; /* Define a direção do layout flexível como vertical */
-  width: 30vw; /* Define a largura do formulário */
-  height: 50vh; /* Define a altura do formulário */
-  padding: 25px; /* Define um preenchimento interno ao redor do conteúdo do formulário */
-  font-size: 1.3rem; /* Define o tamando da fonte de texto */  
+  background-image: linear-gradient(-45deg, #0f0f0fd8, #0f0f0f, #0f0f0f, #0f0f0f);
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  height: 50vh;
+  padding: 25px;
+  font-size: 1.3rem;
   margin-bottom: 2vh;
   margin-top: 2vh;
   border-radius: 50px;
 }
 
-
 .containerFormPost {
-  display: flex; /* Essa propriedade define o elemento como um container flexível */
-  flex-direction: column; /*  Essa propriedade define a direção principal do layout flexível como uma coluna */
-  justify-content: center; /* Essa propriedade alinha os itens verticalmente no centro do container flexível */
-  align-items: center; /* Essa propriedade alinha os itens horizontalmente no centro do container flexível */
-  width: 80vw; /* Essa propriedade define a largura do elemento */
-  height: auto; /* Essa propriedade define a altura do elemento como automática */
-  border-bottom: 1px solid #A09B8C; /* Essa propriedade define uma borda inferior */
-  
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
+  height: auto;
+  border-bottom: 1px solid #A09B8C;
 }
-.fontItalic{
+
+.fontItalic {
   border: 0;
-  outline: 0; 
-  background-color:  rgba(51, 51, 51, 0.5);
+  outline: 0;
+  background-color: rgba(51, 51, 51, 0.5);
   color: white;
   width: 25vw;
   margin-left: auto;
   margin-right: auto;
   border-radius: 1vw;
   display: block;
-}   
+}
 
 input::placeholder {
   color: white;
-
 }
 
-textarea::placeholder{
+textarea::placeholder {
   color: white;
 }
 
-button[type="submit"]{
+button[type="submit"],
+button[type="button"] {
   font-size: 1.2rem;
-  width: 6vw;
-  border-radius: 2vw;
-  margin-top: 1vw; 
- }
-
-
- 
-
+  width: 25vw;
+  border-radius: 1vw;
+  margin-top: 1vw;
+}
 </style>

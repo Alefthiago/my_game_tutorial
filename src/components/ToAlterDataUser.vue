@@ -106,6 +106,7 @@ export default {
                 })
                 .then((response) => {
                     let json = response.data;
+                    console.log(json);
                     this.email = json.user_email;
                     this.userName = json.user_username;
                     this.name = json.user_name;

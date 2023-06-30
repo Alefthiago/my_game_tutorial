@@ -19,13 +19,16 @@ CREATE TABLE users
 CREATE TABLE posts
 (
   post_id INT NOT NULL AUTO_INCREMENT, 
-  post_title VARCHAR(255) NOT NULL,
+  post_tag VARCHAR(100) NOT NULL,
   post_content MEDIUMTEXT NOT NULL,
   post_date DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
-  post_link VARCHAR(500),
+  post_path_file VARCHAR(500),
+  post_file_type VARCHAR(100),
+  users_username VARCHAR(45) NOT NULL,
   users_user_id INT NOT NULL,
   CONSTRAINT posts_pk PRIMARY KEY (post_id),
-  CONSTRAINT posts_users_fk FOREIGN KEY (users_user_id) REFERENCES users (user_id)
+  CONSTRAINT posts_users_fk FOREIGN KEY (users_user_id) REFERENCES users (user_id),
+  CONSTRAINT posts_usersname_fk FOREIGN KEY (users_username) REFERENCES users (user_username)
 );
 
 

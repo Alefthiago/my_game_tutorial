@@ -51,6 +51,7 @@ export default {
           }
           if (json.token) {
             localStorage.setItem('auth-token', json.token);
+            console.log(json.token);
             this.$router.push('/community');
           }
         })

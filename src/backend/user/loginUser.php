@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $emailOrUser = $data['emailOrUser'];
     $pass = sha1($data['password']);
 
-    $sql = 'SELECT user_email, user_id FROM users WHERE (user_email = :emailOrUser OR user_username = :emailOrUser) AND user_password = :pass';
+    $sql = 'SELECT user_id, user_email, user_username FROM users WHERE (user_email = :emailOrUser OR user_username = :emailOrUser) AND user_password = :pass';
 
     try {
         $statement = $connBD->getConnection()->prepare($sql);
@@ -23,14 +23,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $statement->bindParam(':pass', $pass);
         $statement->execute();
         $result = $statement->fetch(PDO::FETCH_ASSOC);
-
         if (empty($result)) {
             $error['error'] = 'Dados inválidos!';
             echo json_encode($error);
         } else {
             $response['token'] = generateToken([
-                'sub' => $result['user_email'],
-                'id' => $result['user_id']
+                'sub' => $result['user_id'],
+                'email' => $result['user_email'],
+                'username' => $result['user_username']
             ]);
             echo json_encode($response);
         }

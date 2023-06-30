@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     $tokenData = getTokenData($data['token']);
-    $id = $tokenData['id'];
+    $id = $tokenData['sub'];
     $email = $data['email'];
     $name = $data['name'];
     $userName = $data['userName'];

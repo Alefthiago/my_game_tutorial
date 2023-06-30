@@ -27,9 +27,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $statement->bindParam(':userName', $userName);
         $statement->bindParam(':pass', $pass);
         $statement->execute();
+
+        $getId = "SELECT user_id, user_email, user_username FROM users WHERE user_email = :email";
+        $getIdStatement = $connBD->getConnection()->prepare($getId);
+        $getIdStatement->bindParam(':email', $email);
+        $getIdStatement->execute();
+        $result = $getIdStatement->fetch(PDO::FETCH_ASSOC);
         $response['token'] = generateToken([
-            'sub' => $email,
-            'user' => $userName
+            'sub' => $result['user_id'],
+            'email' => $result['user_email'],
+            'username' => $result['user_username']
         ]);
         echo json_encode($response);
     } catch (PDOException $exception) {
@@ -44,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     } finally {
         $statement = null;
+        $getIdStatement = null;
         $connBD->closeConnection();
     }
 }

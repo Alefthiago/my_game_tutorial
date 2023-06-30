@@ -13,9 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }
     
     $data = getTokenData($token);
-    $email = $data['sub'];
+    $email = $data['email'];
 
-    $sql = 'SELECT user_id, user_name, user_email, user_username FROM users WHERE user_email = :email';
+    $sql = 'SELECT user_name, user_email, user_username FROM users WHERE user_email = :email';
 
     try {
         $statement = $connBD->getConnection()->prepare($sql);
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $result = $statement->fetch(PDO::FETCH_ASSOC);
         echo json_encode($result);
     } catch(PDOException $exception) {
-        echo "alo";
+        echo var_dump($e->getMessage());
     } finally {
         $statement = null;
         $connBD->closeConnection();

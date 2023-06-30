@@ -1,62 +1,83 @@
 <template>
   <div class="container">
-    <p class=" titleComponent fs fontBold">Postagens</p>
-    <div class="jumbotron">
-      <h3>{{ user }}</h3>
-      <p>{{ truncatedText }}</p>
-      <div v-if="showMoreButton || showLessButton" class="text-center">
-        <a @click="toggleText" class="">{{ buttonText }}</a>
+    <p class="titleComponent fs fontBold">Postagens</p>
+    <div v-for="post in posts" :key="post.id" class="jumbotron">
+      <h3>{{ post.users_username }}</h3>
+      <div v-if="showMoreButton(post.post_content) || showLessButton" class="text-center">
+        <a @click="toggleText(post.id)">{{ buttonText(post.id) }}</a>
       </div>
-  <hr class="my-4">
-  <p>Ele usa classes utilitárias para tipografia e espaçamento de conteúdo, dentro do maior container.</p> 
-  <iframe width="560px" height="315px" src="https://www.youtube.com/watch?v=-rvO9O-8D5s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <a class="btn btn-primary btn-lg" role="button">comentarios</a>
-</div>
+      <hr class="my-4">
+      <p>{{ truncatedText(post.post_content) }}</p>
+      <div v-if="post.post_path_file">
+        <img v-if="post.post_file_type === 'image'" src="@/assets/649e4b0eca6cc.png" alt="">
+        <video v-else-if="post.post_file_type === 'video'"></video>
+      </div>
+      <a class="btn btn-primary btn-lg" role="button">comentarios</a>
+    </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
+import jwt_decode from 'jwt-decode';
+
 export default {
   data() {
     return {
-      user: "alef",
-      text: "🔥 If you're tired of using outline styles for secondary buttons, a soft solid background based on the text color can be a great alternative.🔥 If you're tired of using outline styles for secondary buttons, a soft solid background based on the text color can be a great alternative.🔥 If you're tired of using outline styles for secondary buttons, a soft solid background based on the text color can be a great alternative.🔥 If you're tired of using outline styles for secondary buttons, a soft solid background based on the text color can be a great alternative.🔥 If you're tired of using outline styles for secondary buttons, a soft solid background based on the text color can be a great alternative.🔥 If you're tired of using outline styles for secondary buttons, a soft solid background based on the text color can be a great alternative.🔥 If you're tired of using outline styles for secondary buttons, a soft solid background based on the text color can be a great alternative.🔥 If you're tired of using outline styles for secondary buttons, a soft solid background based on the text color can be a great alternative.",
+      imagePath: "@/backend/post/dataPost/649e4b81449b3.jpg",
+      posts: [],
+      idUser: jwt_decode(localStorage.getItem('auth-token')).sub,
       maxCharacters: 100,
       showMore: false,
       showLess: false,
       additionalCharacters: 200
     };
   },
+  created() {
+    console.log(this.idUser)
+    axios
+      .get("http://localhost:9090/post/recoverPost.php")
+      .then((response) => {
+        console.log(response.data);
+        this.posts = response.data; // Definir a lista de posts com os dados recebidos
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
   computed: {
     truncatedText() {
-      if (this.text.length > this.maxCharacters && !this.showMore) {
-        return this.text.slice(0, this.maxCharacters) + "...";
-      }
-      return this.text;
+      return (text) => {
+        if (text && text.length > this.maxCharacters && !this.showMore) {
+          return text.slice(0, this.maxCharacters) + "...";
+        }
+        return text;
+      };
     },
     showMoreButton() {
-      return this.text.length > this.maxCharacters && !this.showMore && !this.showLess;
+      return (text) => {
+        return text && text.length > this.maxCharacters && !this.showMore && !this.showLess;
+      };
     },
     showLessButton() {
       return this.showLess;
     },
     buttonText() {
-      return this.showMore ? "Show Less" : "Show More";
+      return (postId) => {
+        return this.showMore === postId ? "Show Less" : "Show More";
+      };
     }
   },
   methods: {
-    addPost() {
-      console.log("sss");
-    },
-    toggleText() {
-      if (this.showMore) {
+    toggleText(postId) {
+      if (this.showMore === postId) {
         this.maxCharacters = 100;
         this.showMore = false;
         this.showLess = false;
       } else {
         this.maxCharacters += this.additionalCharacters;
-        if (this.maxCharacters >= this.text.length) {
-          this.showMore = true;
+        if (this.maxCharacters >= this.posts.find(post => post.id === postId).text.length) {
+          this.showMore = postId;
           this.showLess = true;
         }
       }
@@ -70,6 +91,7 @@ export default {
   }
 };
 </script>
+
 <style scoped>
 .container {
   display: flex;
@@ -80,7 +102,6 @@ export default {
   height: auto;
   margin-bottom: 30px;
 }
-
 
 .titleComponent {
   width: 80vw;

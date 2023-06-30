@@ -16,6 +16,7 @@
 
     <!-- Componente para exibir os posts da comunidade -->
     <PostCommunity/>
+    <img alt="">
   </div>
 </template>
 
