@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $extension = strtolower(pathinfo($tempFileName, PATHINFO_EXTENSION));
     move_uploaded_file($file['tmp_name'], $folder . $fileName . "." . $extension);
     if($file) {
-        $filePath = "http://localhost:8080/img/" . $fileName . "." . $extension;
+        $filePath = $fileName . "." . $extension;
     } else {
         $filePath = null;
     }

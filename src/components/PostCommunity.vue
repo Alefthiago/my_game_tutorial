@@ -9,7 +9,7 @@
       <hr class="my-4">
       <p>{{ truncatedText(post.post_content) }}</p>
       <div v-if="post.post_path_file">
-        <img v-if="post.post_file_type === 'image'" src="@/assets/649e4b0eca6cc.png" alt="">
+        <img v-if="post.post_file_type === 'image'" :src="getImage(post.post_path_file)" alt="">
         <video v-else-if="post.post_file_type === 'video'"></video>
       </div>
       <a class="btn btn-primary btn-lg" role="button">comentarios</a>
@@ -24,7 +24,6 @@ import jwt_decode from 'jwt-decode';
 export default {
   data() {
     return {
-      imagePath: "@/backend/post/dataPost/649e4b81449b3.jpg",
       posts: [],
       idUser: jwt_decode(localStorage.getItem('auth-token')).sub,
       maxCharacters: 100,
@@ -66,7 +65,7 @@ export default {
       return (postId) => {
         return this.showMore === postId ? "Show Less" : "Show More";
       };
-    }
+    },
   },
   methods: {
     toggleText(postId) {
@@ -81,6 +80,9 @@ export default {
           this.showLess = true;
         }
       }
+    },
+    getImage(path) {
+      return require(`@/backend/post/dataPost/${path}`);
     },
     updatePost() {
       console.log("Update post");
