@@ -24,7 +24,6 @@ CREATE TABLE posts
   post_date DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
   post_path_file VARCHAR(500),
   post_file_type VARCHAR(100),
-  users_username VARCHAR(45) NOT NULL,
   users_user_id INT NOT NULL,
   CONSTRAINT posts_pk PRIMARY KEY (post_id),
   CONSTRAINT posts_users_fk FOREIGN KEY (users_user_id) REFERENCES users (user_id)
@@ -61,3 +60,6 @@ CREATE TABLE posts_has_tags
   CONSTRAINT posts_has_tags_posts_fk FOREIGN KEY (posts_post_id) REFERENCES posts (post_id),
   CONSTRAINT posts_has_tags_tags_fk FOREIGN KEY (tags_tag_id) REFERENCES tags (tag_id)
 );
+
+INSERT INTO tags (tag_name) VALUES ('LOL'), ('Valorante'), ('MK'), ('Mortal Kombat'), ('Minecraft'), ('Fortnite'), ('Overwatch'), ('Warframe'), ('Counter Strike Global Offensive'), ('Teamfight tactics');
+

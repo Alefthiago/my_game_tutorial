@@ -2,7 +2,7 @@
   <div class="container">
     <p class="titleComponent fs fontBold">Postagens</p>
     <div v-for="post in posts" :key="post.id" class="jumbotron">
-      <h3>{{ post.users_username }}</h3>
+      <h3>{{ post.post_author }}</h3>
       <div v-if="showMoreButton(post.post_content) || showLessButton" class="text-center">
         <a @click="toggleText(post.id)">{{ buttonText(post.id) }}</a>
       </div>

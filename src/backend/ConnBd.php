@@ -9,7 +9,7 @@
         public function __construct() {
           $this->dbName = "projetoepratica";
           $this->port = 3306; // ou 3307 se necessário
-          $this->user = "alef";
+          $this->user = "root";
           $this->senha = "root";
         }
       
