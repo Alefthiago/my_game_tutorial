@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $filePath = null;
     }
     
-    $sql = "INSERT INTO posts (post_tag, post_content, post_path_file, post_file_type, users_username, users_user_id) VALUES (:tag, :content, :path_file, :file_type, :users_username, :userId)";
+    $sql = "INSERT INTO posts (post_tag, post_content, post_path_file, post_file_type,  users_user_id) VALUES (:tag, :content, :path_file, :file_type,  :userId)";
 
     try {
         $stmt = $connBD->getConnection()->prepare($sql);
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bindParam(":path_file", $filePath);
         $stmt->bindParam(":file_type", $fileType);
         $stmt->bindParam(":userId", $id);
-        $stmt->bindParam(":users_username", $userName);
+        // $stmt->bindParam(":users_username", $userName);
         $stmt->execute();
         
         if (!empty($file)) {
