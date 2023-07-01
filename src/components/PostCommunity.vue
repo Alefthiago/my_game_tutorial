@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       posts: [],
-      idUser: jwt_decode(localStorage.getItem('auth-token')).sub,
+      idUser: '',
       maxCharacters: 100,
       showMore: false,
       showLess: false,
@@ -33,7 +33,9 @@ export default {
     };
   },
   created() {
-    console.log(this.idUser)
+    if(localStorage.getItem('auth-toke')) {
+      this.idUser = jwt_decode(localStorage.getItem('auth-token')).sub
+    }
     axios
       .get("http://localhost:9090/post/recoverPost.php")
       .then((response) => {

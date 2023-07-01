@@ -27,8 +27,7 @@ CREATE TABLE posts
   users_username VARCHAR(45) NOT NULL,
   users_user_id INT NOT NULL,
   CONSTRAINT posts_pk PRIMARY KEY (post_id),
-  CONSTRAINT posts_users_fk FOREIGN KEY (users_user_id) REFERENCES users (user_id),
-  CONSTRAINT posts_usersname_fk FOREIGN KEY (users_username) REFERENCES users (user_username)
+  CONSTRAINT posts_users_fk FOREIGN KEY (users_user_id) REFERENCES users (user_id)
 );
 
 
